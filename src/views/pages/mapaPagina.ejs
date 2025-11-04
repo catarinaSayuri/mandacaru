@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/assets/icon_title.png" type="image/x-icon">
+
+  <title>Home | Mandacaru</title>
+  <link rel="stylesheet" href="/css/mapaStyle.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+
+  <!-- Importação de fontes: Poppins e Mulish-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body >
+  <header>
+    <nav>
+      <div>
+        <a href="/">
+          <img class="logo" src="/assets/logo_mandacaru.svg" alt="logo_mandacaru" />
+        </a>
+      </div>
+      <ul class="navbar">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/cultura">Cultura</a></li>
+        <li><a href="/esporte">Esporte</a></li>
+        <li><a href="/saude">Saúde Mental</a></li>
+        <li><a href="/sobre">Sobre Nós</a></li>
+      </ul>
+      <button class="mobile-btn">
+        <img src="../assets/NavBar.svg" alt="" />
+      </button>
+    </nav>
+
+    <div id="mobile-menu">
+      <ul class="mobile-navbar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/cultura">Cultura</a></li>
+        <li><a href="/esporte">Esporte</a></li>
+        <li><a href="/saude">Saúde Mental</a></li>
+        <li><a href="/sobre">Sobre Nós</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="container-principal">
+      <div class="texto-principal">
+        <div class="texto-principal-titulo">
+          <h1 class="texto-h1">Mapa & <span>Localidades</span></h1>
+          <p class="texto-subtitulo">
+            Descubra os serviços mais próximos de você!
+          </p>
+        </div>
+      </div>
+      <div>
+        <img src="../assets/mascote_mapa.png" alt="" class="img-mapa"/>
+      </div>
+    </section>
+
+    <section class="mapa-container">
+      <div class="texto-secundário">
+        <h2 class="texto-h2">Acesso ao Mapa</h2>
+        <p class="texto-subtitulo-secundario">
+          Aplique os filtros disponíveis com base na necessidade do serviço procurado
+        </p>
+      </div>
+
+      <!-- Mapa -->
+      <div id="map" style="height: 450px; margin-top: 20px;"></div>
+
+      <!-- Filtros -->
+      <div class="filtros">
+        <div class="filtro-container">
+          <div class="custom-select-wrapper">
+            <div class="custom-select" id="filtroEstado">
+              <div class="custom-select-trigger">Estado</div>
+              <div class="custom-options">
+                <span class="custom-option" data-value="">Todos</span>
+                <span class="custom-option" data-value="AC">AC</span>
+                <span class="custom-option" data-value="AL">AL</span>
+                <span class="custom-option" data-value="AP">AP</span>
+                <span class="custom-option" data-value="AM">AM</span>
+                <span class="custom-option" data-value="BA">BA</span>
+                <span class="custom-option" data-value="CE">CE</span>
+                <span class="custom-option" data-value="DF">DF</span>
+                <span class="custom-option" data-value="ES">ES</span>
+                <span class="custom-option" data-value="GO">GO</span>
+                <span class="custom-option" data-value="MA">MA</span>
+                <span class="custom-option" data-value="MT">MT</span>
+                <span class="custom-option" data-value="MS">MS</span>
+                <span class="custom-option" data-value="MG">MG</span>
+                <span class="custom-option" data-value="PA">PA</span>
+                <span class="custom-option" data-value="PB">PB</span>
+                <span class="custom-option" data-value="PR">PR</span>
+                <span class="custom-option" data-value="PE">PE</span>
+                <span class="custom-option" data-value="PI">PI</span>
+                <span class="custom-option" data-value="RJ">RJ</span>
+                <span class="custom-option" data-value="RN">RN</span>
+                <span class="custom-option" data-value="RS">RS</span>
+                <span class="custom-option" data-value="RO">RO</span>
+                <span class="custom-option" data-value="RR">RR</span>
+                <span class="custom-option" data-value="SC">SC</span>
+                <span class="custom-option" data-value="SP">SP</span>
+                <span class="custom-option" data-value="SE">SE</span>
+                <span class="custom-option" data-value="TO">TO</span>
+              </div>
+            </div>
+            <input type="hidden" id="filtroEstadoValue" name="filtroEstado">
+          </div>
+        </div>
+
+        <div class="filtro-container">
+          <select id="filtrocategoria_localidade" class="filtro-select">
+            <option value="">Categoria</option>
+            <option value="">Todos</option>
+            <option value="Cultura">Cultura</option>
+            <option value="Esporte">Esporte</option>
+            <option value="Saúde Mental">Saúde Mental</option>
+          </select>
+        </div>
+
+        <div class="filtro-container">
+          <select id="filtroGenero" class="filtro-select">
+            <option value="">Gênero</option>
+            <option value="">Todos</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="filtro-container">
+          <select id="filtroFaixaEtaria" class="filtro-select">
+            <option value="">Faixa etária</option>
+            <option value="">Todos</option>
+            <option value="Infantil">Infantil</option>
+            <option value="Adolescente">Adolescente</option>
+            <option value="Adulto">Adulto</option>
+            <option value="Idoso">Idoso</option>
+          </select>
+        </div>
+
+        <button onclick="listarServicos()" id="botaoFiltrar">Filtrar</button>
+      </div>
+
+      <!-- Barra de pesquisa -->
+      <div class="pesquisa-container">
+        <input type="text" name="pesquisa" id="pesquisa-input" placeholder="Pesquise a localidade desejada" />
+        <button class="btn-pesquisa" id="pesquisa-button" onclick="listarServicos()">Pesquisar</button>
+      </div>
+
+      <!-- Resultados filtrados -->
+      <article class="localidades-container" id="localidadesContainer">
+        <div id="listaServicosContainer"></div>
+      </article>
+
+      <!-- Cards fixos explicativos -->
+      <article class="info-container" id="infoContainer">
+        <div class="texto-terciario">
+          <h3 class="texto-h3">Localidades</h3>
+          <p class="texto-subtitulo-secundario">
+            Confira como funcionam as principais localidades!
+          </p>
+        </div>
+
+        <div class="card-container" onclick="toggleCard(this)">
+          <div class="card-header">
+            <img src="../assets/logo_caps.png" alt="Informações" class="card-icon" />
+            <h4 class="card-titulo">CAPS - Centro de Atenção Psicossocial</h4>
+          </div>
+
+          <div class="card-info">
+            <div class="card-info-texto">
+              <h5 class="card-info-titulo">Função</h5>
+              <p class="card-info-descricao">Oferecer cuidados em saúde mental para pessoas em sofrimento psíquico.</p>
+              <h5 class="card-info-titulo">Descrição</h5>
+              <p class="card-info-descricao">Os CAPS são unidades especializadas no atendimento de pessoas que enfrentam
+                transtornos mentais, incluindo casos mais intensos, como crises. O acompanhamento é feito de forma
+                contínua, priorizando o acolhimento e o vínculo com a equipe.</p>
+              <h5 class="card-info-titulo">Serviços Oferecidos</h5>
+              <p class="card-info-descricao">Atendimento com psicólogos e psiquiatras, oficinas terapêuticas, grupos de
+                apoio, atividades coletivas e acompanhamento familiar.</p>
+            </div>
+            <div class="card-info-imagem">
+              <img src="../assets/caps_ilustracao.jpg" alt="Informações" class="card-imagem" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container" onclick="toggleCard(this)">
+          <div class="card-header">
+            <img src="../assets/logo_ceu.png" alt="Informações" class="card-icon" />
+            <h4 class="card-titulo">CEU – Centro Educacional Unificado</h4>
+          </div>
+
+          <div class="card-info">
+            <div class="card-info-texto">
+              <h5 class="card-info-titulo">Função</h5>
+              <p class="card-info-descricao">Promover educação, cultura, esporte e lazer integrados em um único espaço.
+              </p>
+              <h5 class="card-info-titulo">Descrição</h5>
+              <p class="card-info-descricao">Os CEUs funcionam como polos comunitários que reúnem escolas, teatros,
+                bibliotecas, espaços esportivos e culturais. São voltados ao fortalecimento da convivência e do acesso à
+                cidadania.</p>
+              <h5 class="card-info-titulo">Serviços Oferecidos</h5>
+              <p class="card-info-descricao">Atividades educacionais, oficinas culturais, práticas esportivas,
+                apresentações artísticas e eventos abertos à comunidade.</p>
+            </div>
+            <div class="card-info-imagem">
+              <img src="../assets/ceu_ilustracao.jpg" alt="Informações" class="card-imagem" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card-container" onclick="toggleCard(this)">
+          <div class="card-header">
+            <img src="../assets/logo_ce.png" alt="Informações" class="card-icon" />
+            <h4 class="card-titulo">CE – Centro Esportivo</h4>
+          </div>
+
+          <div class="card-info">
+            <div class="card-info-texto">
+              <h5 class="card-info-titulo">Função</h5>
+              <p class="card-info-descricao">Estimular a prática de atividades físicas e esportes gratuitos para a
+                população.</p>
+              <h5 class="card-info-titulo">Descrição</h5>
+              <p class="card-info-descricao">Os Centros Esportivos oferecem estrutura para práticas esportivas e
+                recreativas. São espaços voltados ao bem-estar físico, social e mental, atendendo pessoas de todas as
+                idades.</p>
+              <h5 class="card-info-titulo">Serviços Oferecidos</h5>
+              <p class="card-info-descricao">Aulas de esportes (como futebol, vôlei e dança), treinos em academia,
+                caminhadas orientadas e eventos esportivos.</p>
+            </div>
+            <div class="card-info-imagem">
+              <img src="../assets/ce_ilustracao.jpeg" alt="Informações" class="card-imagem" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025, projeto Mandacaru - Inteli</p>
+    <div class="icones-rodape">
+      <a href="https://github.com/Inteli-College/2025-1B-T17-IN02-G01" class="link-icone-rodape"><img
+          src="/assets/icon_github.svg" alt="" class="icone-rodape" /></a>
+      <a href="https://msha.ke/projeto_mandacaru/" class="link-icone-rodape"><img
+          src="/assets/icon_linkedin.svg" alt="" class="icone-rodape" /></a>
+    </div>
+  </footer>
+
+   <!-- Botão de voltar ao topo da página -->
+    <button class="scroll-top" aria-label="Voltar ao topo">
+      <svg
+        width="24"
+        height="24"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    async function obterLocalizacao() {
+      return new Promise((resolve) => {
+        if (!navigator.geolocation) {
+          console.warn("Geolocalização não suportada.");
+          return resolve({ latitude: -23.5505, longitude: -46.6333 }); // São Paulo
+        }
+
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const { latitude, longitude } = pos.coords;
+            resolve({ latitude, longitude });
+          },
+          (err) => {
+            console.warn("Erro ao obter localização:", err.message);
+            resolve({ latitude: -23.5505, longitude: -46.6333 });
+          }
+        );
+      });
+    }
+
+    // Navbar
+    const mobileBtn = document.querySelector(".mobile-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    mobileBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("active");
+    });
+
+    const mobileLinks = document.querySelectorAll(".mobile-navbar a");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
+    });
+
+    // Inicializando o mapa
+    var map = L.map("map").setView([-23.55052, -46.633308], 13);
+
+    var myIcon = L.icon({
+      iconUrl: '/assets/mascote_livro.png',
+      iconSize: [65, 95],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+      shadowSize: [68, 95],
+      shadowAnchor: [22, 94]
+    });
+
+    var IconLoc = L.icon({
+      iconUrl: '/assets/location_icon.png',
+      iconSize: [55, 55],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+      shadowSize: [68, 95],
+      shadowAnchor: [22, 94]
+    });
+
+    var IconSaude = L.icon({
+      iconUrl: '/assets/location_saude.png',
+      iconSize: [55, 55],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+      shadowSize: [68, 95],
+      shadowAnchor: [22, 94]
+    });
+
+    var IconCultura = L.icon({
+      iconUrl: '/assets/location_cultura.png',
+      iconSize: [55, 55],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+      shadowSize: [68, 95],
+      shadowAnchor: [22, 94]
+    });
+
+    var IconEsporte = L.icon({
+      iconUrl: '/assets/location_esporte.png',
+      iconSize: [55, 55],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+      shadowSize: [68, 95],
+      shadowAnchor: [22, 94]
+    });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap",
+      maxZoom: 19,
+    }).addTo(map);
+
+    function toggleCard(card) {
+      document.querySelectorAll('.card-container').forEach(c => {
+        if (c !== card) c.classList.remove('expanded');
+      });
+      card.classList.toggle('expanded');
+    }
+
+    async function listarServicos() {
+      const listaDiv = document.getElementById("listaServicosContainer");
+      const { latitude, longitude } = await obterLocalizacao();
+      const marcadores = [];
+
+      map.eachLayer(function (layer) {
+        if (layer instanceof L.Marker) {
+          map.removeLayer(layer);
+        }
+      });
+
+      L.marker([latitude, longitude], { icon: myIcon })
+        .addTo(map)
+        .bindPopup("Este é você!")
+        .openPopup();
+
+      const estado = document.getElementById("filtroEstadoValue").value;
+      const categoria_localidade = document.getElementById("filtrocategoria_localidade").value;
+      const genero = document.getElementById("filtroGenero").value;
+      const faixaEtaria = document.getElementById("filtroFaixaEtaria").value;
+
+      const params = new URLSearchParams();
+      if (estado) params.append("estado", estado);
+      if (categoria_localidade) params.append("categoria_localidade", categoria_localidade);
+      if (genero) params.append("genero", genero);
+      if (faixaEtaria) params.append("faixa_etaria", faixaEtaria);
+
+      try {
+        const response = await fetch("/servicos/filtrar?" + params.toString());
+        if (!response.ok) {
+          const erro = await response.json();
+          throw new Error(erro.error || "Erro ao buscar serviços");
+        }
+
+        const servicos = await response.json();
+        const inputPesquisa = document.getElementById("pesquisa-input").value.trim().toLowerCase();
+        const palavras = inputPesquisa.split(" ");
+
+        const resultado = servicos.filter(servico =>
+          palavras.some(p =>
+            servico.nome.toLowerCase().includes(p) ||
+            servico.estado.toLowerCase().includes(p)
+          )
+        );
+
+        if (resultado.length === 0) {
+          listaDiv.innerHTML = '<div class="aviso"><p>Nenhum serviço encontrado com esses filtros.</p></div>';
+
+          return;
+        }
+
+        function calcularDistancia(lat1, lng1, lat2, lng2) {
+          const R = 6371; // Raio da Terra em km
+          const toRad = x => (x * Math.PI) / 180;
+          const dLat = toRad(lat2 - lat1);
+          const dLng = toRad(lng2 - lng1);
+          const a = Math.sin(dLat / 2) ** 2 +
+            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+          const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+          return R * c;
+        }
+
+        const locaisOrdenados = resultado
+          .map(local => ({
+            ...local,
+            distancia: calcularDistancia(latitude, longitude, local.latitude, local.longitude)
+          }))
+          .sort((a, b) => a.distancia - b.distancia);
+
+        let displayedCount = 4; // Contador inicial de cards exibidos
+
+        function renderizarCards(limite) {
+          marcadores.length = 0; // Limpa marcadores anteriores
+          let html = '<div class="container-localidades-filtradas">';
+          const maxCards = Math.min(locaisOrdenados.length, limite);
+
+          locaisOrdenados.slice(0, maxCards).forEach((r) => {
+            let cardId = `${r.id_servico}`;
+            let icon;
+
+            switch (r.categoria_localidade) {
+              case "Esporte":
+                icon = IconEsporte;
+                html += `
+          <div class="card-localidade-filtrada" id="${cardId}">
+            <div class="card-localizacao-header">
+              <img src="/assets/location_esporte.png" alt="Ícone de Localização" class="icone-localizacao"/>
+              <h3 class="localizacao-titulo">${r.nome}</h3>
+            </div>
+            <p class="localidade-descricao"><span class="titulo-card">Categoria:</span> ${r.categoria_localidade}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Descrição: </span>${r.descricao}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Funcionamento: </span>${r.horario_funcionamento}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Endereço: </span>${r.rua}, ${r.numero}, ${r.bairro}, ${r.cidade} - ${r.estado}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${r.latitude},${r.longitude}" target="_blank" class="link-rotas">
+              <img src="/assets/rotas_icon.png" alt="Ícone de rotas"/> Ir para o destino no Google Maps 
+            </a>
+          </div>
+        `;
+                marcadores.push({ id: cardId, lat: r.latitude, lng: r.longitude, nome: r.nome, icon });
+                break;
+              case "Cultura":
+                icon = IconCultura;
+                html += `
+          <div class="card-localidade-filtrada" id="${cardId}">
+            <div class="card-localizacao-header">
+              <img src="/assets/location_cultura.png" alt="Ícone de Localização" class="icone-localizacao"/>
+              <h3 class="localizacao-titulo">${r.nome}</h3>
+            </div>
+            <p class="localidade-descricao"><span class="titulo-card">Categoria:</span> ${r.categoria_localidade}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Descrição: </span>${r.descricao}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Funcionamento: </span>${r.horario_funcionamento}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Endereço: </span>${r.rua}, ${r.numero}, ${r.bairro}, ${r.cidade} - ${r.estado}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${r.latitude},${r.longitude}" target="_blank" class="link-rotas">
+              <img src="/assets/rotas_icon.png" alt="Ícone de rotas"/> Ir para o destino no Google Maps 
+            </a>
+          </div>
+        `;
+                marcadores.push({ id: cardId, lat: r.latitude, lng: r.longitude, nome: r.nome, icon });
+                break;
+              case "Saúde Mental":
+                icon = IconSaude;
+                html += `
+          <div class="card-localidade-filtrada" id="${cardId}">
+            <div class="card-localizacao-header">
+              <img src="/assets/location_saude.png" alt="Ícone de Localização" class="icone-localizacao"/>
+              <h3 class="localizacao-titulo">${r.nome}</h3>
+            </div>
+            <p class="localidade-descricao"><span class="titulo-card">Categoria:</span> ${r.categoria_localidade}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Descrição: </span>${r.descricao}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Funcionamento: </span>${r.horario_funcionamento}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Endereço: </span>${r.rua}, ${r.numero}, ${r.bairro}, ${r.cidade} - ${r.estado}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${r.latitude},${r.longitude}" target="_blank" class="link-rotas">
+              <img src="/assets/rotas_icon.png" alt="Ícone de rotas"/> Ir para o destino no Google Maps 
+            </a>
+          </div>
+        `;
+                marcadores.push({ id: cardId, lat: r.latitude, lng: r.longitude, nome: r.nome, icon });
+                break;
+              default:
+                icon = IconLoc;
+                html += `
+          <div class="card-localidade-filtrada" id="${cardId}">
+            <div class="card-localizacao-header">
+              <img src="/assets/location_icon.png" alt="Ícone de Localização" class="icone-localizacao"/>
+              <h3 class="localizacao-titulo">${r.nome}</h3>
+            </div>
+            <p class="localidade-descricao"><span class="titulo-card">Categoria:</span> ${r.categoria_localidade}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Descrição:</span> ${r.descricao}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Funcionamento: </span>${r.horario_funcionamento}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Endereço: </span>${r.rua}, ${r.numero}, ${r.bairro}, ${r.cidade} - ${r.estado}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${r.latitude},${r.longitude}" target="_blank" class="link-rotas">
+              <img src="/assets/rotas_icon.png" alt="Ícone de rotas"/> Ir para o destino no Google Maps 
+            </a>
+          </div>
+        `;
+                marcadores.push({ id: cardId, lat: r.latitude, lng: r.longitude, nome: r.nome, icon });
+                break;
+            }
+          });
+
+          html += `
+    <div class="ver-mais-container">
+      ${locaisOrdenados.length > limite ? '<button id="verMaisBtn" class="ver-mais-btn">Ver Mais</button>' : ''}
+      ${limite > 4 ? '<button id="verMenosBtn" class="ver-menos-btn">Ver Menos</button>' : ''}
+    </div>
+  `;
+          html += "</div>";
+          listaDiv.innerHTML = html;
+
+          // Adiciona marcadores ao mapa
+          marcadores.forEach(({ id, lat, lng, nome, icon }) => {
+            const marker = L.marker([lat, lng], { icon })
+              .addTo(map)
+              .bindPopup(nome);
+            marker.on("click", () => {
+              document.querySelectorAll(".card-localidade-filtrada").forEach(card => {
+                card.classList.remove("ativo");
+              });
+              const div = document.getElementById(id);
+              if (div) {
+                div.classList.add("ativo");
+                div.scrollIntoView({ behavior: "smooth", block: "center" });
+              }
+            });
+          });
+
+          // Configura os eventos dos botões
+          const verMaisBtn = document.getElementById("verMaisBtn");
+          if (verMaisBtn) {
+            verMaisBtn.addEventListener("click", () => {
+              displayedCount += 4; // Incrementa o número de cards exibidos
+              renderizarCards(displayedCount);
+            });
+          }
+
+          const verMenosBtn = document.getElementById("verMenosBtn");
+          if (verMenosBtn) {
+            verMenosBtn.addEventListener("click", () => {
+              displayedCount = Math.max(4, displayedCount - 4); // Decrementa 9, mantendo no mínimo 9
+              renderizarCards(displayedCount);
+            });
+          }
+        }
+
+
+        // Renderiza inicialmente até 9 cards
+        renderizarCards(displayedCount);
+
+      } catch (error) {
+        listaDiv.innerHTML = '<p style="color:red;">Erro ao carregar serviços: ' + error.message + "</p>";
+      }
+
+      map.setView([latitude, longitude], 13);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      listarServicos();
+      obterLocalizacao();
+    });
+
+    document.querySelectorAll('.custom-select').forEach(select => {
+      const trigger = select.querySelector('.custom-select-trigger');
+      const options = select.querySelectorAll('.custom-option');
+      const hiddenInput = select.parentElement.querySelector('#filtroEstadoValue');
+
+      trigger.addEventListener('click', () => {
+        select.classList.toggle('open');
+      });
+
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          options.forEach(opt => opt.classList.remove('selected'));
+          option.classList.add('selected');
+          trigger.textContent = option.textContent;
+          hiddenInput.value = option.getAttribute('data-value');
+          select.classList.remove('open');
+          listarServicos();
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!select.contains(e.target)) {
+          select.classList.remove('open');
+        }
+      });
+    });
+  </script>
+  <script src="https://cdn.userway.org/widget.js" data-account="YswjRxBH1z"></script>
+  <script>
+       // Mostrar botão de "voltar ao topo" quando o usuário rola a página
+      const scrollTopBtn = document.querySelector(".scroll-top");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          scrollTopBtn.classList.add("visible");
+        } else {
+          scrollTopBtn.classList.remove("visible");
+        }
+      });
+
+      // Rolar suavemente para o topo quando o botão for clicado
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+  </script>
+</body>
+
+</html>

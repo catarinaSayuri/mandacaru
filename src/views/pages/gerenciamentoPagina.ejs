@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+           <link rel="icon" href="/assets/icon_title_adm.png" type="image/x-icon">
+
+    <title>Gerenciamento | Mandacaru </title>
+    <link rel="stylesheet" href="/css/gerenciamentoStyle.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+  <!-- Importação de fontes: Poppins e Mulish-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div>
+          <a href="/">
+            <img
+              class="logo"
+              src="/assets/logo_mandacaru.svg"
+              alt="logo_mandacaru"
+            />
+          </a>
+        </div>
+        <ul class="navbar">
+          <li class="active"><a href="/adm/gerenciamento">Gerenciamento</a></li>
+        </ul>
+        <button class="mobile-btn">
+          <img src="../assets/NavBar.svg" alt="Menu" />
+        </button>
+      </nav>
+      <div id="mobile-menu">
+        <ul class="mobile-navbar">
+          <li><a href="/adm/gerenciamento">Gerenciamento</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="container-principal">
+        <h1>Gerenciamento</h1>
+
+        <div class="filtros">
+          <div class="filtro-container">
+            <div class="custom-select-wrapper">
+              <div class="custom-select" id="filtroEstado">
+                <div class="custom-select-trigger">Estado</div>
+                <div class="custom-options">
+                  <span class="custom-option" data-value="">Todos</span>
+                  <span class="custom-option" data-value="AC">AC</span>
+                  <span class="custom-option" data-value="AL">AL</span>
+                  <span class="custom-option" data-value="AP">AP</span>
+                  <span class="custom-option" data-value="AM">AM</span>
+                  <span class="custom-option" data-value="BA">BA</span>
+                  <span class="custom-option" data-value="CE">CE</span>
+                  <span class="custom-option" data-value="DF">DF</span>
+                  <span class="custom-option" data-value="ES">ES</span>
+                  <span class="custom-option" data-value="GO">GO</span>
+                  <span class="custom-option" data-value="MA">MA</span>
+                  <span class="custom-option" data-value="MT">MT</span>
+                  <span class="custom-option" data-value="MS">MS</span>
+                  <span class="custom-option" data-value="MG">MG</span>
+                  <span class="custom-option" data-value="PA">PA</span>
+                  <span class="custom-option" data-value="PB">PB</span>
+                  <span class="custom-option" data-value="PR">PR</span>
+                  <span class="custom-option" data-value="PE">PE</span>
+                  <span class="custom-option" data-value="PI">PI</span>
+                  <span class="custom-option" data-value="RJ">RJ</span>
+                  <span class="custom-option" data-value="RN">RN</span>
+                  <span class="custom-option" data-value="RS">RS</span>
+                  <span class="custom-option" data-value="RO">RO</span>
+                  <span class="custom-option" data-value="RR">RR</span>
+                  <span class="custom-option" data-value="SC">SC</span>
+                  <span class="custom-option" data-value="SP">SP</span>
+                  <span class="custom-option" data-value="SE">SE</span>
+                  <span class="custom-option" data-value="TO">TO</span>
+                </div>
+              </div>
+              <input type="hidden" id="filtroEstadoValue" name="filtroEstado">
+            </div>
+          </div>
+
+          <div class="filtro-container">
+            <select id="filtrocategoria_localidade" class="filtro-select">
+              <option value="">Categoria</option>
+              <option value="">Todas</option>
+              <option value="Cultura">Cultura</option>
+              <option value="Esporte">Esporte</option>
+              <option value="Saúde Mental">Saúde Mental</option>
+            </select>
+          </div>
+
+          <div class="filtro-container">
+            <select id="filtroGenero" class="filtro-select">
+              <option value="">Gênero</option>
+              <option value="">Todos</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+
+          <div class="filtro-container">
+            <select id="filtroFaixaEtaria" class="filtro-select">
+              <option value="">Faixa etária</option>
+              <option value="">Todas</option>
+              <option value="Infantil">Infantil</option>
+              <option value="Adolescente">Adolescente</option>
+              <option value="Adulto">Adulto</option>
+              <option value="Idoso">Idoso</option>
+            </select>
+          </div>
+
+          <button onclick="listarServicos()" id="botaoFiltrar">Filtrar</button>
+        </div>
+
+        <article class="localidades-container" id="localidadesContainer">
+          <div class="pesquisa-container">
+            <input
+              type="text"
+              name="pesquisa"
+              id="pesquisa-input"
+              placeholder="Pesquise a localidade desejada"
+            />
+            <button
+              class="btn-pesquisa"
+              id="pesquisa-button"
+              onclick="listarServicos()"
+            >
+              Pesquisar
+            </button>
+          </div>
+          <div id="listaServicosContainer"></div>
+        </article>
+
+        <button class="add-button" id="abrirAdicaoModalBtn">+</button>
+
+        <div class="modalRolagem" id="adicaoModal">
+          <div class="modalBackground">
+            <div class="modalAdicao">
+              <button class="fechar-modal" onclick="fecharAdicaoModal()">
+                ×
+              </button>
+              <h1>Adicionar novo local</h1>
+              <form id="formAdicaoServico">
+                <h2>Dados do Serviço</h2>
+                <div class="containerGrande">
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    class="inputGrande"
+                    placeholder="Nome"
+                    required
+                  />
+                  <input
+                    type="text"
+                    id="descricao"
+                    name="descricao"
+                    class="inputGrande"
+                    placeholder="Descrição"
+                    
+                  />
+                  <select
+                    name="categoria_localidade"
+                    class="inputGrande"
+                    required
+                  >
+                    <option value="">Selecione categoria</option>
+                    <option value="Cultura">Cultura</option>
+                    <option value="Esporte">Esporte</option>
+                    <option value="Saúde Mental">Saúde Mental</option>
+                  </select>
+                </div>
+                <div class="containerPequeno">
+                  <select name="genero" class="inputPequeno" required>
+                    <option value="">Gênero</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Outro">Outro</option>
+                    <option value="">Todos</option>
+                  </select>
+                  <select name="faixa_etaria" class="inputPequeno" required>
+                    <option value="">Faixa etária</option>
+                    <option value="Infantil">Infantil</option>
+                    <option value="Adolescente">Adolescente</option>
+                    <option value="Adulto">Adulto</option>
+                    <option value="Idoso">Idoso</option>
+                    <option value="Todos">Todas</option>
+                  </select>
+                </div>
+                <div class="containerPequeno">
+                  <input
+                    type="text"
+                    name="horario_funcionamento"
+                    placeholder="Horário de Funcionamento"
+                    class="inputPequeno"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="telefone"
+                    placeholder="Telefone"
+                    class="inputPequeno"
+                    required
+                  />
+                </div>
+                <h2>Endereço</h2>
+                <div class="containerPequeno">
+                  <!-- Contêiner para campos de estado e cidade -->
+                  <select name="estado" id="selectEstado" class="inputPequeno" required>
+                    <option value="">Estado</option>
+                  </select>
+                  <!-- Campo para estado -->
+                  <input
+                    type="text"
+                    name="cidade"
+                    placeholder="Cidade"
+                    class="inputPequeno"
+                    required
+                  />
+                </div>
+                <div class="containerPequeno">
+                  <input
+                    type="text"
+                    name="bairro"
+                    placeholder="Bairro"
+                    class="inputPequeno"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="cep"
+                    placeholder="CEP"
+                    class="inputPequeno"
+                    required
+                  />
+                </div>
+                <div class="containerPequeno">
+                  <input
+                    type="text"
+                    name="rua"
+                    placeholder="Rua"
+                    class="inputPequeno"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="numero"
+                    placeholder="Número"
+                    class="inputPequeno"
+                    required
+                  />
+                </div>
+                <div class="containerPequeno">
+                  <input
+                    type="text"
+                    name="latitude"
+                    placeholder="Latitude"
+                    class="inputPequeno"
+                  />
+                  <input
+                    type="text"
+                    name="longitude"
+                    placeholder="Longitude"
+                    class="inputPequeno"
+                  />
+                </div>
+                <div class="buttonRow">
+                  <button type="submit" class="botao salvar">Salvar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="modalRolagem" id="edicaoModal">
+          <div class="modalBackground">
+            <div class="modalEdicao">
+              <button class="fechar-modal" onclick="fecharEdicaoModal()">
+                ×
+              </button>
+              <h1>Editar local</h1>
+              <form id="formEdicaoServico">
+                <h2>Dados do Serviço</h2>
+                <div class="containerGrande">
+                  <input
+                    type="text"
+                    id="nomeEdit"
+                    name="nome"
+                    class="inputGrande"
+                    placeholder="Nome"
+                    required
+                  />
+                  <input
+                    type="text"
+                    id="descricaoEdit"
+                    name="descricao"
+                    class="inputGrande"
+                    placeholder="Descrição"
+                    
+                  />
+                  <select
+                    name="categoria_localidade"
+                    class="inputGrande"
+                    required
+                  >
+                    <option value="">Selecione categoria</option>
+                    <option value="Cultura">Cultura</option>
+                    <option value="Esporte">Esporte</option>
+                    <option value="Saúde Mental">Saúde Mental</option>
+                  </select>
+                </div>
+                <div class="containerPequeno">
+                  <select name="genero" class="inputPequeno" >
+                    <option value="Todos">Gênero</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Outro">Outro</option>
+                    <option value="Todos">Todos</option>
+                  </select>
+                  <select name="faixa_etaria" class="inputPequeno" >
+                    <option value="Todos">Faixa etária</option>
+                    <option value="Infantil">Infantil</option>
+                    <option value="Adolescente">Adolescente</option>
+                    <option value="Adulto">Adulto</option>
+                    <option value="Idoso">Idoso</option>
+                    <option value="Todos">Todas</option>
+                  </select>
+                </div>
+                <div class="containerPequeno">
+                  <input
+                    type="text"
+                    name="horario_funcionamento"
+                    placeholder="Horário de Funcionamento"
+                    class="inputPequeno"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="telefone"
+                    placeholder="Telefone"
+                    class="inputPequeno"
+                    required
+                  />
+                </div>
+                <h2>Endereço</h2>
+                <div class="containerPequeno">
+                  <!-- Contêiner para campos de estado e cidade -->
+                  <select name="estado" id="editEstado" class="inputPequeno" required>
+                    <option value="">Estado</option>
+                  </select>
+                  <!-- Campo para estado -->
+                  <input
+                    type="text"
+                    name="cidade"
+                    placeholder="Cidade"
+                    class="inputPequeno"
+                    required
+                  />
+                </div>
+                <div class="containerPequeno">
+                  <input
+                    type="text"
+                    name="bairro"
+                    placeholder="Bairro"
+                    class="inputPequeno"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="cep"
+                    placeholder="CEP"
+                    class="inputPequeno"
+                    required
+                  />
+                </div>
+                <div class="containerPequeno">
+                  <input
+                    type="text"
+                    name="rua"
+                    placeholder="Rua"
+                    class="inputPequeno"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="numero"
+                    placeholder="Número"
+                    class="inputPequeno"
+                    required
+                  />
+                </div>
+                <div class="containerPequeno">
+                  <input
+                    type="text"
+                    name="latitude"
+                    placeholder="Latitude"
+                    class="inputPequeno"
+                  />
+                  <input
+                    type="text"
+                    name="longitude"
+                    placeholder="Longitude"
+                    class="inputPequeno"
+                  />
+                </div>
+                <div class="buttonRow">
+                  <button type="submit" class="botao editar">Atualizar</button>
+                  <button
+                    type="button"
+                    class="botao excluir"
+                    onclick="showConfirmationModal('delete', currentEditingId)"
+                  >
+                    Excluir
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div class="confirmation-modal" id="confirmationModal">
+          <div class="confirmation-modal-content">
+            <h2>Confirmar Ação</h2>
+            <p id="confirmationMessage">Tem certeza que deseja excluir este serviço?</p>
+            <div class="confirmation-buttons">
+              <button class="btn-confirm" id="confirmButton">Confirmar</button>
+              <button class="btn-cancel" onclick="hideConfirmationModal()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025, projeto Mandacaru - Inteli</p>
+      <div class="icones-rodape">
+        <a
+          href="https://github.com/Inteli-College/2025-1B-T17-IN02-G01"
+          class="link-icone-rodape"
+        >
+          <img
+            src="/assets/icon_github.svg"
+            alt="GitHub"
+            class="icone-rodape"
+          />
+        </a>
+        <a
+          href="https://msha.ke/projeto_mandacaru/"
+          class="link-icone-rodape"
+        >
+          <img
+            src="/assets/icon_linkedin.svg"
+            alt="LinkedIn"
+            class="icone-rodape"
+          />
+        </a>
+      </div>
+    </footer>
+
+   
+
+    <div class="notification-container" id="notification-container"></div>
+    <!-- Botão para voltar ao topo da página -->
+
+      <!-- Botão de voltar ao topo da página -->
+    <button class="scroll-top" aria-label="Voltar ao topo">
+      <svg
+        width="24"
+        height="24"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+  
+    <script>
+      // Notification function
+      function showNotification(message, type = 'success') {
+        const notificationContainer = document.getElementById('notification-container');
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        notificationContainer.appendChild(notification);
+        setTimeout(() => notification.classList.add('show'), 100);
+        setTimeout(() => {
+          notification.classList.remove('show');
+          notification.classList.add('hide');
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }
+
+      // Confirmation Modal functions
+      let confirmationCallback = null;
+      function showConfirmationModal(action, id) {
+        const modal = document.getElementById('confirmationModal');
+        const message = document.getElementById('confirmationMessage');
+        const confirmButton = document.getElementById('confirmButton');
+        
+        message.textContent = `Tem certeza que deseja excluir este serviço?`;
+        modal.style.display = 'flex';
+        
+        // Store the callback for deletion
+        confirmationCallback = () => {
+          deletarServico(id);
+          if (action === 'delete' && currentEditingId === id) {
+            fecharEdicaoModal();
+          }
+        };
+        
+        confirmButton.onclick = () => {
+          if (confirmationCallback) {
+            confirmationCallback();
+          }
+          hideConfirmationModal();
+        };
+      }
+
+      function hideConfirmationModal() {
+        const modal = document.getElementById('confirmationModal');
+        modal.style.display = 'none';
+        confirmationCallback = null;
+      }
+
+      // Navbar
+      const mobileBtn = document.querySelector(".mobile-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+      });
+
+      const mobileLinks = document.querySelectorAll(".mobile-navbar a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+        });
+      });
+
+      // Modal controls
+      const abrirAdicaoModalBtn = document.getElementById("abrirAdicaoModalBtn");
+      const adicaoModal = document.getElementById("adicaoModal");
+      const edicaoModal = document.getElementById("edicaoModal");
+      let currentEditingId = null;
+
+      function abrirAdicaoModal() {
+        adicaoModal.style.display = "flex";
+        document.getElementById("formAdicaoServico").reset();
+      }
+
+      function fecharAdicaoModal() {
+        adicaoModal.style.display = "none";
+      }
+
+      function abrirEdicaoModal(id) {
+        currentEditingId = id;
+        fetch(`/servicos/${id}`, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+          .then((response) => {
+            if (!response.ok) throw new Error("Erro ao buscar serviço");
+            return response.json();
+          })
+          .then((servico) => {
+            const form = document.getElementById("formEdicaoServico");
+            form.nome.value = servico.nome;
+            form.descricao.value = servico.descricao;
+            form.categoria_localidade.value = servico.categoria_localidade;
+            form.horario_funcionamento.value = servico.horario_funcionamento;
+            form.genero.value = servico.genero;
+            form.faixa_etaria.value = servico.faixa_etaria || "";
+            form.telefone.value = servico.telefone;
+            form.estado.value = servico.estado || "";
+            form.cidade.value = servico.cidade || "";
+            form.bairro.value = servico.bairro || "";
+            form.cep.value = servico.cep || "";
+            form.rua.value = servico.rua || "";
+            form.numero.value = servico.numero || "";
+            form.latitude.value = servico.latitude || "";
+            form.longitude.value = servico.longitude || "";
+            edicaoModal.style.display = "flex";
+          })
+          .catch((error) => {
+            showNotification("Erro ao carregar serviço para edição: " + error.message, 'error');
+          });
+      }
+
+      function fecharEdicaoModal() {
+        edicaoModal.style.display = "none";
+        currentEditingId = null;
+      }
+
+      abrirAdicaoModalBtn.addEventListener("click", abrirAdicaoModal);
+
+      // Lista todos os serviços
+      async function listarServicos() {
+        const listaDiv = document.getElementById("listaServicosContainer");
+        const estado = document.getElementById("filtroEstadoValue").value;
+        const categoria_localidade = document.getElementById(
+          "filtrocategoria_localidade"
+        ).value;
+        const genero = document.getElementById("filtroGenero").value;
+        const faixaEtaria = document.getElementById("filtroFaixaEtaria").value;
+
+        const params = new URLSearchParams();
+        if (estado) params.append("estado", estado);
+        if (categoria_localidade)
+          params.append("categoria_localidade", categoria_localidade);
+        if (genero) params.append("genero", genero);
+        if (faixaEtaria) params.append("faixa_etaria", faixaEtaria);
+
+        try {
+          const response = await fetch(
+            "/servicos/filtrar?" + params.toString()
+          );
+          if (!response.ok) {
+            const erro = await response.json();
+            throw new Error(erro.error || "Erro ao buscar serviços");
+          }
+          const servicos = await response.json();
+
+          const inputPesquisa = document
+            .getElementById("pesquisa-input")
+            .value.trim()
+            .toLowerCase();
+          const palavras = inputPesquisa.split(" ");
+
+          const resultado = servicos.filter((servico) =>
+            palavras.some(
+              (p) =>
+                servico.nome.toLowerCase().includes(p) ||
+                servico.estado.toLowerCase().includes(p)
+            )
+          );
+          if (resultado.length === 0) {
+                     listaDiv.innerHTML = '<div class="aviso"><p>Nenhum serviço encontrado com esses filtros.</p></div>';
+
+            return;
+          }
+
+          let displayedCount = 4;
+
+           function renderizarCards(limite) {
+          let html = '<div class="container-localidades-filtradas">';
+          const maxCards = Math.min(resultado.length, limite);
+
+          resultado.slice(0, maxCards).forEach((r) => {
+            let cardId = `${r.id_servico}`;
+          
+
+            switch (r.categoria_localidade) {
+              case "Esporte":
+                html += `
+          <div class="card-localidade-filtrada" id="${cardId}">
+            <div class="card-localizacao-header">
+              <img src="/assets/location_esporte.png" alt="Ícone de Localização" class="icone-localizacao"/>
+              <h3 class="localizacao-titulo">${r.nome}</h3>
+              <button id="botaoApagar" onclick="showConfirmationModal('delete', '${r.id_servico}')" title="Excluir" style="position: absolute; top: 8px; right: 8px; background: transparent; border: none; cursor: pointer;">
+                     <img class="botaoEditar" src="/assets/excluir-gerenciamento.png" alt="excluir-gerenciamento" />
+                    </button>
+                    <button id="botaoEditar" onclick="abrirEdicaoModal('${r.id_servico}')" title="Editar" style="position: absolute; top: 8px; right: 36px; background: transparent; border: none; cursor: pointer;">
+                      <img class="botaoApagar" src="/assets/editar-gerenciamento.png" alt= "editar-gerenciamento" />
+                    </button>
+            </div>
+            <p class="localidade-descricao"><span class="titulo-card">Categoria:</span> ${r.categoria_localidade}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Descrição: </span>${r.descricao}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Funcionamento: </span>${r.horario_funcionamento}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Endereço: </span>${r.rua}, ${r.numero}, ${r.bairro}, ${r.cidade} - ${r.estado}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${r.latitude},${r.longitude}" target="_blank" class="link-rotas">
+              <img src="/assets/rotas_icon.png" alt="Ícone de rotas"/> Ir para o destino no Google Maps 
+            </a>
+          </div>
+        `;
+                break;
+              case "Cultura":
+                html += `
+          <div class="card-localidade-filtrada" id="${cardId}">
+            <div class="card-localizacao-header">
+              <img src="/assets/location_cultura.png" alt="Ícone de Localização" class="icone-localizacao"/>
+              <h3 class="localizacao-titulo">${r.nome}</h3>
+              <button id="botaoApagar" onclick="showConfirmationModal('delete', '${r.id_servico}')" title="Excluir" style="position: absolute; top: 8px; right: 8px; background: transparent; border: none; cursor: pointer;">
+                     <img class="botaoEditar" src="/assets/excluir-gerenciamento.png" alt="excluir-gerenciamento" />
+                    </button>
+                    <button id="botaoEditar" onclick="abrirEdicaoModal('${r.id_servico}')" title="Editar" style="position: absolute; top: 8px; right: 36px; background: transparent; border: none; cursor: pointer;">
+                      <img class="botaoApagar" src="/assets/editar-gerenciamento.png" alt= "editar-gerenciamento" />
+                    </button>
+            </div>
+            <p class="localidade-descricao"><span class="titulo-card">Categoria:</span> ${r.categoria_localidade}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Descrição: </span>${r.descricao}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Funcionamento: </span>${r.horario_funcionamento}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Endereço: </span>${r.rua}, ${r.numero}, ${r.bairro}, ${r.cidade} - ${r.estado}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${r.latitude},${r.longitude}" target="_blank" class="link-rotas">
+              <img src="/assets/rotas_icon.png" alt="Ícone de rotas"/> Ir para o destino no Google Maps 
+            </a>
+          </div>
+        `;
+                break;
+              case "Saúde Mental":
+                html += `
+          <div class="card-localidade-filtrada" id="${cardId}">
+            <div class="card-localizacao-header">
+              <img src="/assets/location_saude.png" alt="Ícone de Localização" class="icone-localizacao"/>
+              <h3 class="localizacao-titulo">${r.nome}</h3>
+              <button id="botaoApagar" onclick="showConfirmationModal('delete', '${r.id_servico}')" title="Excluir" style="position: absolute; top: 8px; right: 8px; background: transparent; border: none; cursor: pointer;">
+                     <img class="botaoEditar" src="/assets/excluir-gerenciamento.png" alt="excluir-gerenciamento"/>
+                    </button>
+                    <button id="botaoEditar" onclick="abrirEdicaoModal('${r.id_servico}')" title="Editar" style="position: absolute; top: 8px; right: 36px; background: transparent; border: none; cursor: pointer;">
+                      <img class="botaoApagar" src="/assets/editar-gerenciamento.png" alt= "editar-gerenciamento" "/>
+                    </button>
+            </div>
+            <p class="localidade-descricao"><span class="titulo-card">Categoria:</span> ${r.categoria_localidade}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Descrição: </span>${r.descricao}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Funcionamento: </span>${r.horario_funcionamento}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Endereço: </span>${r.rua}, ${r.numero}, ${r.bairro}, ${r.cidade} - ${r.estado}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${r.latitude},${r.longitude}" target="_blank" class="link-rotas">
+              <img src="/assets/rotas_icon.png" alt="Ícone de rotas"/> Ir para o destino no Google Maps 
+            </a>
+          </div>
+        `;
+                break;
+              default:
+                html += `
+          <div class="card-localidade-filtrada" id="${cardId}">
+            <div class="card-localizacao-header">
+              <img src="/assets/location_icon.png" alt="Ícone de Localização" class="icone-localizacao"/>
+              <h3 class="localizacao-titulo">${r.nome}</h3>
+              <button id="botaoApagar" onclick="showConfirmationModal('delete', '${r.id_servico}')" title="Excluir" style="position: absolute; top: 8px; right: 8px; background: transparent; border: none; cursor: pointer;">
+                     <img class="botaoEditar" src="/assets/excluir-gerenciamento.png" alt="excluir-gerenciamento" />
+                    </button>
+                    <button id="botaoEditar" onclick="abrirEdicaoModal('${r.id_servico}')" title="Editar" style="position: absolute; top: 8px; right: 36px; background: transparent; border: none; cursor: pointer;">
+                      <img class="botaoApagar" src="/assets/editar-gerenciamento.png" alt= "editar-gerenciamento"/>
+                    </button>
+            </div>
+            <p class="localidade-descricao"><span class="titulo-card">Categoria:</span> ${r.categoria_localidade}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Descrição:</span> ${r.descricao}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Funcionamento: </span>${r.horario_funcionamento}</p>
+            <p class="localidade-descricao"><span class="titulo-card">Endereço: </span>${r.rua}, ${r.numero}, ${r.bairro}, ${r.cidade} - ${r.estado}</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${r.latitude},${r.longitude}" target="_blank" class="link-rotas">
+              <img src="/assets/rotas_icon.png" alt="Ícone de rotas"/> Ir para o destino no Google Maps 
+            </a>
+          </div>
+        `;
+                break;
+            }
+          });
+
+          html += `
+    <div class="ver-mais-container">
+      ${resultado.length > limite ? '<button id="verMaisBtn" class="ver-mais-btn">Ver Mais</button>' : ''}
+      ${limite > 4 ? '<button id="verMenosBtn" class="ver-menos-btn">Ver Menos</button>' : ''}
+    </div>
+  `;
+          html += "</div>";
+          listaDiv.innerHTML = html;
+
+          
+
+          // Configura os eventos dos botões
+          const verMaisBtn = document.getElementById("verMaisBtn");
+          if (verMaisBtn) {
+            verMaisBtn.addEventListener("click", () => {
+              displayedCount += 4; // Incrementa o número de cards exibidos
+              renderizarCards(displayedCount);
+            });
+          }
+
+          const verMenosBtn = document.getElementById("verMenosBtn");
+          if (verMenosBtn) {
+            verMenosBtn.addEventListener("click", () => {
+              displayedCount = Math.max(4, displayedCount - 4); // Decrementa 9, mantendo no mínimo 9
+              renderizarCards(displayedCount);
+            });
+          }
+        }
+
+
+        // Renderiza inicialmente até 9 cards
+        renderizarCards(displayedCount);
+        } catch (error) {
+          showNotification("Erro ao carregar serviços: " + error.message, 'error');
+        }
+      }
+
+      // Deletar serviço
+      async function deletarServico(id) {
+        try {
+          const response = await fetch(`/servicos/${id}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          });
+
+          if (!response.ok) {
+            const erro = await response.json();
+            throw new Error(erro.error || "Erro ao deletar serviço");
+          }
+
+          showNotification("Serviço excluído com sucesso!", 'success');
+          listarServicos();
+        } catch (error) {
+          showNotification("Erro ao excluir: " + error.message, 'error');
+        }
+      }
+
+      function deletarServicoModal() {
+        if (!currentEditingId) return;
+        showConfirmationModal('delete', currentEditingId);
+      }
+
+      // Submissão do formulário de adição
+      document
+        .getElementById("formAdicaoServico")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const form = event.target;
+          const token = localStorage.getItem("token");
+          if (!token) {
+            showNotification("Sessão expirada. Faça login novamente.", 'error');
+            window.location.href = "/adm/login";
+            return;
+          }
+          const dadosServico = {
+            nome: form.nome.value,
+            descricao: form.descricao.value,
+            categoria_localidade: form.categoria_localidade.value,
+            horario_funcionamento: form.horario_funcionamento.value,
+            genero: form.genero.value,
+            faixa_etaria: form.faixa_etaria.value,
+            telefone: form.telefone.value,
+            estado: form.estado.value,
+            cidade: form.cidade.value,
+            bairro: form.bairro.value,
+            cep: form.cep.value,
+            rua: form.rua.value,
+            numero: form.numero.value,
+            latitude: form.latitude.value,
+            longitude: form.longitude.value,
+          };
+
+          try {
+            const enderecoRes = await fetch("/enderecos/", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                estado: dadosServico.estado,
+                cidade: dadosServico.cidade,
+                bairro: dadosServico.bairro,
+                cep: dadosServico.cep,
+                rua: dadosServico.rua,
+                numero: dadosServico.numero,
+                latitude: dadosServico.latitude,
+                longitude: dadosServico.longitude,
+              }),
+            });
+
+            const enderecoData = await enderecoRes.json();
+            if (!enderecoRes.ok) {
+              throw new Error(enderecoData.error || "Erro ao criar endereço");
+            }
+
+            const id_endereco = enderecoData.id_endereco;
+
+            const servicoRes = await fetch("/servicos", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                nome: dadosServico.nome,
+                descricao: dadosServico.descricao,
+                categoria_localidade: dadosServico.categoria_localidade,
+                horario_funcionamento: dadosServico.horario_funcionamento,
+                genero: dadosServico.genero,
+                faixa_etaria: dadosServico.faixa_etaria,
+                telefone: dadosServico.telefone,
+                id_endereco: id_endereco,
+              }),
+            });
+
+            const servicoData = await servicoRes.json();
+            if (!servicoRes.ok) {
+              throw new Error(servicoData.error || "Erro ao criar serviço");
+            }
+
+            showNotification("Serviço criado com sucesso!", 'success');
+            form.reset();
+            fecharAdicaoModal();
+            listarServicos();
+          } catch (error) {
+            showNotification("Erro ao criar serviço: " + error.message, 'error');
+          }
+        });
+
+      // Submissão do formulário de edição
+      document
+        .getElementById("formEdicaoServico")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const form = event.target;
+          const dadosServico = {
+            nome: form.nome.value,
+            descricao: form.descricao.value,
+            categoria_localidade: form.categoria_localidade.value,
+            horario_funcionamento: form.horario_funcionamento.value,
+            genero: form.genero.value,
+            faixa_etaria: form.faixa_etaria.value,
+            telefone: form.telefone.value,
+            estado: form.estado.value,
+            cidade: form.cidade.value,
+            bairro: form.bairro.value,
+            cep: form.cep.value,
+            rua: form.rua.value,
+            numero: form.numero.value,
+            latitude: form.latitude.value,
+            longitude: form.longitude.value,
+          };
+
+          try {
+            const response = await fetch(`/servicos/${currentEditingId}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + localStorage.getItem("token"),
+              },
+              body: JSON.stringify(dadosServico),
+            });
+
+            if (!response.ok) {
+              const erro = await response.json();
+              throw new Error(erro.error || "Erro ao salvar serviço");
+            }
+
+            showNotification("Serviço atualizado com sucesso!", 'success');
+            form.reset();
+            fecharEdicaoModal();
+            listarServicos();
+          } catch (error) {
+            showNotification("Erro ao salvar serviço: " + error.message, 'error');
+          }
+        });
+
+      // Verifica token e controla visibilidade dos botões
+      function isTokenExpired(token) {
+        if (!token) return true;
+        try {
+          const payloadBase64 = token.split(".")[1];
+          if (!payloadBase64) return true;
+          const payloadJson = atob(
+            payloadBase64.replace(/-/g, "+").replace(/_/g, "/")
+          );
+          const payload = JSON.parse(payloadJson);
+          if (!payload.exp) return true;
+          const now = Math.floor(Date.now() / 1000);
+          return payload.exp < now;
+        } catch (e) {
+          return true;
+        }
+      }
+
+      // Custom select functionality
+      document.querySelectorAll('.custom-select').forEach(select => {
+        const trigger = select.querySelector('.custom-select-trigger');
+        const options = select.querySelectorAll('.custom-option');
+        const hiddenInput = select.parentElement.querySelector('#filtroEstadoValue');
+
+        trigger.addEventListener('click', () => {
+          select.classList.toggle('open');
+        });
+
+        options.forEach(option => {
+          option.addEventListener('click', () => {
+            options.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+            trigger.textContent = option.textContent;
+            hiddenInput.value = option.getAttribute('data-value');
+            select.classList.remove('open');
+            listarServicos();
+          });
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!select.contains(e.target)) {
+            select.classList.remove('open');
+          }
+        });
+      });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("token");
+        if (!token || isTokenExpired(token)) {
+          localStorage.removeItem("token");
+          showNotification("Sessão expirada. Faça login novamente.", 'error');
+          setTimeout(() => {
+            window.location.href = "/adm/login";
+          }, 1000);
+          return;
+        }
+
+        abrirAdicaoModalBtn.style.display = "block";
+        listarServicos();
+
+        setTimeout(() => {
+          const botoesApagar = document.querySelectorAll("#botaoApagar");
+          const botoesEditar = document.querySelectorAll("#botaoEditar");
+          botoesApagar.forEach((btn) => (btn.style.display = "inline-block"));
+          botoesEditar.forEach((btn) => (btn.style.display = "inline-block"));
+        }, 300);
+        // Atraso de 300ms
+      });
+
+    // Lista de estados brasileiros
+    const estadosBrasil = [
+      { sigla: "AC", nome: "Acre" },
+      { sigla: "AL", nome: "Alagoas" },
+      { sigla: "AP", nome: "Amapá" },
+      { sigla: "AM", nome: "Amazonas" },
+      { sigla: "BA", nome: "Bahia" },
+      { sigla: "CE", nome: "Ceará" },
+      { sigla: "DF", nome: "Distrito Federal" },
+      { sigla: "ES", nome: "Espírito Santo" },
+      { sigla: "GO", nome: "Goiás" },
+      { sigla: "MA", nome: "Maranhão" },
+      { sigla: "MT", nome: "Mato Grosso" },
+      { sigla: "MS", nome: "Mato Grosso do Sul" },
+      { sigla: "MG", nome: "Minas Gerais" },
+      { sigla: "PA", nome: "Pará" },
+      { sigla: "PB", nome: "Paraíba" },
+      { sigla: "PR", nome: "Paraná" },
+      { sigla: "PE", nome: "Pernambuco" },
+      { sigla: "PI", nome: "Piauí" },
+      { sigla: "RJ", nome: "Rio de Janeiro" },
+      { sigla: "RN", nome: "Rio Grande do Norte" },
+      { sigla: "RS", nome: "Rio Grande do Sul" },
+      { sigla: "RO", nome: "Rondônia" },
+      { sigla: "RR", nome: "Roraima" },
+      { sigla: "SC", nome: "Santa Catarina" },
+      { sigla: "SP", nome: "São Paulo" },
+      { sigla: "SE", nome: "Sergipe" },
+      { sigla: "TO", nome: "Tocantins" }
+    ];
+
+    
+    function selectEstados(idSelect) {
+      const select = document.getElementById(idSelect);
+      if (!select) return;
+      estadosBrasil.forEach(estado => {
+        const option = document.createElement("option");
+        option.value = estado.sigla;
+        option.textContent = estado.nome;
+        select.appendChild(option);
+      });
+    }
+
+    // Popula o select ao carregar a página
+    document.addEventListener("DOMContentLoaded", function() {
+      selectEstados("selectEstado");
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+      selectEstados("editEstado");
+    });
+      // Chama a função para popular o select de estados quando a página for carregada    
+    </script>
+    <script
+      src="https://cdn.userway.org/widget.js"
+      data-account="YswjRxBH1z"
+    ></script>
+      <script>
+      // Toggle mobile menu
+      document.querySelector(".mobile-btn").addEventListener("click", () => {
+        // Adiciona um ouvinte de evento de clique no botão do menu móvel
+        document.querySelector("#mobile-menu").classList.toggle("active");
+        // Alterna a classe 'active' para exibir ou ocultar o menu móvel
+      });
+
+      // Scroll to top with footer limit
+      const scrollTopBtn = document.querySelector(".scroll-top");
+      // Seleciona o botão de voltar ao topo
+      const footer = document.querySelector("footer");
+      // Seleciona o rodapé
+
+      window.addEventListener("scroll", () => {
+        // Adiciona um ouvinte de evento para o scroll da janela
+        const scrollPosition = window.scrollY;
+        // Obtém a posição atual do scroll
+        const windowHeight = window.innerHeight;
+        // Obtém a altura da janela
+        const footerHeight = footer.offsetHeight;
+        // Obtém a altura do rodapé
+        const footerTop = footer.getBoundingClientRect().top + scrollPosition;
+        // Calcula a posição do topo do rodapé
+        const limitDistance = 80;
+        // Define a distância mínima do botão ao rodapé
+
+        if (scrollPosition > 300) {
+          // Verifica se o usuário rolou mais de 300px
+          scrollTopBtn.classList.add("visible");
+          // Adiciona a classe 'visible' para mostrar o botão
+        } else {
+          scrollTopBtn.classList.remove("visible");
+          // Remove a classe 'visible' para ocultar o botão
+        }
+
+        // Limitar a posição do botão para não cobrir o footer
+        if (footerTop <= windowHeight) {
+          // Verifica se o rodapé está visível na janela
+          const newBottom = Math.max(limitDistance, footerHeight + 20);
+          // Calcula a nova posição inferior do botão
+          scrollTopBtn.style.bottom = `${newBottom}px`;
+          // Ajusta a posição do botão para evitar sobreposição com o rodapé
+        } else {
+          scrollTopBtn.style.bottom = "20px";
+          // Define a posição padrão do botão
+        }
+      });
+
+      scrollTopBtn.addEventListener("click", () => {
+        // Adiciona um ouvinte de evento de clique no botão de voltar ao topo
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        // Rola a página suavemente até o topo
+      });
+    </script>
+  </body>
+</html>

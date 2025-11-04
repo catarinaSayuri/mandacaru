@@ -1,0 +1,731 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Reseta margens, preenchimentos e define o modelo de caixa como border-box para todos os elementos */
+}
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    /* Garante que o corpo e o HTML ocupem 100% da largura e pelo menos a altura total da janela */
+    font-family: "Poppins", sans-serif;
+    /* Define a fonte padrão como Poppins */
+    font-size: 16px;
+    /* Tamanho de fonte base */
+    line-height: 1.6;
+    /* Altura da linha para melhor legibilidade */
+background-color: #fff2f6;    /* Cor de fundo rosa claro */
+    color: #2D2D2D;
+    /* Cor do texto principal */
+    display: flex;
+    flex-direction: column;
+    /* Organiza o conteúdo em coluna */
+    overflow-x: hidden;
+    /* Evita rolagem horizontal */
+}
+
+.container-principal {
+    width: 68vw;
+    height: auto;
+    margin: 5% auto;
+    display: flex
+;
+    row-gap: 5vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+    /* Aplica uma animação de fade-in para elementos com a classe fade-in */
+}
+
+
+
+header {
+  margin: 0;
+  background: #E5F4F2;
+  /* Fundo verde claro */
+  width: 100%;
+  /* Ocupa toda a largura */
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 2vw;
+  
+  /* Centraliza o conteúdo com largura máxima de 1200px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Distribui o espaço entre os elementos */
+  padding: 1rem;
+  /* Preenchimento interno */
+}
+
+.logo {
+  height: 50px;
+  /* Altura fixa do logotipo */
+}
+
+.navbar {
+  display: flex;
+  list-style: none;
+  /* Remove marcadores de lista */
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #333;
+  /* Cor do texto cinza escuro */
+  font-weight: 500;
+  /* Peso médio */
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  /* Preenchimento interno */
+  transition: color 0.3s ease;
+  /* Transição suave para a cor do texto */
+}
+
+.navbar li.active a,
+.navbar li a:hover {
+  color: #D52453;
+  /* Cor rosa escuro para links ativos ou em hover */
+}
+
+.mobile-btn {
+  display: none;
+  /* Oculta o botão de menu móvel por padrão */
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* Cursor de clique */
+}
+
+#mobile-menu {
+  display: none;
+  /* Oculta o menu móvel por padrão */
+  background: #E5F4F2;
+  /* Fundo verde claro */
+  padding: 1rem;
+  /* Preenchimento interno */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  /* Ocupa toda a largura */
+  z-index: 999;
+  /* Acima de outros elementos */
+}
+
+#mobile-menu.active {
+  display: block;
+  /* Exibe o menu móvel quando ativo */
+}
+
+.mobile-navbar {
+  list-style: none;
+  /* Remove marcadores de lista */
+  display: flex;
+  flex-direction: column;
+  /* Organiza os itens em coluna */
+  gap: 1rem;
+  /* Espaço entre os itens */
+  text-align: center;
+  /* Centraliza o texto */
+}
+
+.mobile-navbar li a {
+  text-decoration: none;
+  color: #333;
+  /* Cor do texto cinza escuro */
+  font-weight: 500;
+  /* Peso médio */
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  /* Transição suave para a cor do texto */
+}
+
+.mobile-navbar li a:hover {
+  color: #D52453;
+  /* Cor rosa escuro em hover */
+}
+
+.topo-section {
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100vw;
+    height: auto;
+    padding: 10vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    background: #fff2f6;
+    background: linear-gradient(0deg, rgba(255, 242, 246, 1) 0%, rgba(246, 243, 245, 1) 9%, rgba(242, 243, 244, 1) 18%, rgba(235, 244, 243, 1) 23%, rgba(229, 244, 242, 1) 100%);
+
+}
+
+.content-dois {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Centraliza o conteúdo com largura máxima de 1200px */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Organiza os itens com espaço entre eles */
+    gap: 2rem;
+    /* Espaço entre os elementos filhos */
+}
+
+.text-content {
+    flex: 1;
+    text-align: left;
+    /* Alinha o texto à esquerda */
+    animation: slideInLeft 0.8s ease-out;
+    /* Aplica animação de deslizamento da esquerda */
+}
+
+.tela-container-principal {
+        width: 68vw;
+    height: auto;
+    margin: 5% auto;
+    display: flex
+;
+    row-gap: 8vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+    /* Define a animação de deslizamento: começa com opacidade 0 e deslocamento de -50px, terminando com opacidade 1 e na posição original */
+}
+
+.title {
+    font-size: 64px;
+    /* Tamanho de fonte responsivo entre 2.5rem e 4rem */
+    font-weight: 800;
+    /* Peso extra negrito */
+    line-height: 1.2;
+    /* Altura da linha compacta */
+    color: #2D2D2D;
+    /* Cor preta escura */
+
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil no texto */
+}
+
+.subtitle {
+    font-size: 24px;
+    /* Tamanho de fonte responsivo entre 1.125rem e 1.5rem */
+    color: #2d2d2d;
+    margin-bottom: 3vw;
+    /* Cor cinza escura */
+      font-weight: 400;
+  /* Peso regular */
+  line-height: 140%;
+    /* Margem inferior */
+    font-family: "Mulish", sans-serif;
+    /* Fonte Mulish para o subtítulo */
+}
+
+.highlight {
+    color: #D52453;
+    /* Cor rosa escuro para destaque */
+    font-weight: 700;
+    /* Peso negrito */
+}
+.cta-button {
+    background: linear-gradient(90deg, #D52453, #E94A6F);
+    /* Gradiente de rosa escuro para rosa claro */
+    color: white;
+    /* Cor do texto branca */
+    border: none;
+    padding: 0.9rem 2.5rem;
+    /* Preenchimento interno */
+    font-size: 1.1rem;
+    /* Tamanho de fonte */
+    font-weight: 600;
+    /* Peso semi-negrito */
+    border-radius: 25px;
+    /* Bordas arredondadas */
+    cursor: pointer;
+    /* Cursor de clique */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transições suaves para transform e sombra */
+    box-shadow: 0 4px 15px rgba(213, 36, 83, 0.3);
+    /* Sombra com tom de rosa */
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    /* Eleva o botão em 2px ao passar o mouse */
+    box-shadow: 0 6px 20px rgba(213, 36, 83, 0.5);
+    /* Aumenta a sombra em hover */
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha o conteúdo à direita */
+    animation: slideInRight 0.8s ease-out;
+    /* Aplica animação de deslizamento da direita */
+}
+
+
+
+.mascote {
+    max-width: 100%;
+    height: auto;
+    max-height: 25rem;
+    /* Altura máxima da imagem do mascote */
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+    /* Sombra projetada na imagem */
+}
+
+
+
+.final-section {
+    background: #FFF2F6;
+    /* Fundo rosa claro */
+
+    /* Preenchimento interno */
+}
+
+.sports-benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Centraliza o conteúdo com largura máxima de 1200px */
+}
+
+.sports-benefits-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    /* Margem inferior */
+}
+
+.sports-benefits-title, .title-tres {
+        align-items: center;
+    font-size: 42px;
+    line-height: 1.1;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+    color: #000000;
+}
+
+.sports-benefits-subtitle, .subtitle-tres {
+    font-size: 20px;
+  font-weight: 400;
+  /* Peso regular */
+  font-family: "Mulish", sans-serif;
+  text-align: center;
+
+  color: #2d2d2d;
+}
+
+.sports-benefits-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* Organiza os elementos em coluna com espaço entre eles */
+}
+
+.image-and-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    /* Alinha os itens ao topo */
+}
+
+.cactus-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centraliza a imagem */
+}
+
+.cactus-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 25rem;
+    /* Altura máxima da imagem do cacto */
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+    /* Sombra projetada na imagem */
+}
+
+.sports-benefits-text {
+        font-size: 18px;
+    font-style: normal;
+    color: #2d2d2d;
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+}
+
+
+.benefits-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    /* Grade com duas colunas, mínimo de 200px por coluna */
+    gap: 2rem;
+    /* Espaço entre os cards */
+    max-width: 600px;
+    /* Largura máxima da grade */
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.9);
+    /* Fundo branco semi-transparente */
+    border-radius: 16px;
+    /* Bordas arredondadas */
+    padding: 1.5rem;
+    /* Preenchimento interno */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    text-align: center;
+    /* Centraliza o texto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transições suaves para transform e sombra */
+    backdrop-filter: blur(5px);
+    /* Efeito de desfoque no fundo */
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    /* Eleva o card em 8px ao passar o mouse */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    /* Aumenta a sombra em hover */
+}
+
+.benefit-title {
+    font-size: 16px;
+    /* Tamanho de fonte responsivo entre 1rem e 1.25rem */
+    font-weight: 600;
+    /* Peso semi-negrito */
+    color: #1A1A1A;
+    /* Cor preta escura */
+    margin-bottom: 0.75rem;
+    /* Margem inferior */
+}
+
+.benefit-description {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    /* Tamanho de fonte responsivo entre 0.875rem e 1rem */
+    color: #666;
+    /* Cor cinza */
+    font-family: "Mulish", sans-serif;
+    /* Fonte Mulish */
+}
+
+.parte-final {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Organiza os itens com espaço entre eles */
+    gap: 2rem;
+    /* Espaço entre os elementos filhos */
+    margin-top: 2rem;
+    /* Margem superior */
+}
+
+.parte-final-text {
+    flex: 1;
+    font-size: 18px;
+    font-style: normal;
+    color: #2d2d2d;
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    max-width: 50%;
+}
+.cactus-meditar-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centraliza a imagem */
+    max-width: 50%;
+    /* Limita a largura do contêiner da imagem */
+}
+
+.cactus-meditar-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 20rem;
+    /* Altura máxima da imagem */
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+    /* Sombra projetada na imagem */
+}
+
+.destaque {
+    font-weight: 700;
+    /* Peso negrito */
+    color: #D52453;
+    /* Cor rosa escuro para destaque */
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    /* Altura mínima do rodapé */
+    background: linear-gradient(0deg, rgba(229, 244, 242, 1) 80%, rgba(255, 242, 246, 1) 100%);
+    /* Gradiente de verde claro para rosa claro */
+    color: #000000;
+    /* Cor do texto preta */
+    display: flex;
+    padding: 40px;
+    /* Preenchimento interno */
+    justify-content: space-between;
+    align-items: center;
+    /* Organiza os itens com espaço entre eles e centralizados verticalmente */
+    position: relative;
+    bottom: 0;
+    /* Posiciona o rodapé na parte inferior */
+    font-family: "Mulish", sans-serif;
+    /* Fonte Mulish */
+    font-optical-sizing: auto;
+    /* Otimização de fonte */
+    font-weight: 500;
+    /* Peso médio */
+    font-style: normal;
+    font-size: 16px;
+    /* Tamanho de fonte */
+}
+
+.icones-rodape {
+    width: auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    /* Alinha os ícones à direita e centraliza verticalmente */
+}
+
+a.link-icone-rodape {
+    text-decoration: none;
+    color: inherit;
+    display: contents;
+    /* Remove o comportamento de bloco do link */
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    /* Remove espaçamento extra */
+}
+
+.icone-rodape {
+    width: 25%;
+    margin: 10px;
+    /* Margem ao redor dos ícones */
+    cursor: pointer;
+    /* Cursor de clique */
+}
+
+.icone-rodape:hover {
+    scale: 1.05;
+    /* Aumenta o tamanho do ícone em 5% ao passar o mouse */
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* Posiciona o botão no canto inferior direito */
+    background: #D52453;
+    /* Fundo rosa escuro */
+    border: none;
+    border-radius: 50%;
+    /* Formato circular */
+    width: 50px;
+    height: 50px;
+    /* Dimensões do botão */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Centraliza o conteúdo */
+    cursor: pointer;
+    /* Cursor de clique */
+    opacity: 0;
+    visibility: hidden;
+    /* Oculta o botão por padrão */
+    transition: opacity 0.3s ease, visibility 0.3s ease, bottom 0.3s ease;
+    /* Transições suaves */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    z-index: 1000;
+    /* Garante que o botão fique acima de outros elementos */
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    /* Exibe o botão quando a classe visible é adicionada */
+}
+
+.scroll-top:hover {
+    background: #E94A6F;
+    /* Altera o fundo para rosa claro em hover */
+    transform: translateY(-2px);
+    /* Eleva o botão em 2px */
+}
+
+
+@media (max-width: 900px) {
+    .navbar {
+        display: none;
+        /* Oculta a navegação principal em telas menores */
+    }
+
+     .title {
+    font-size: 42px;
+ 
+}
+
+.subtitle {
+    font-size: 22px;
+ 
+}
+
+ .benefit-title {
+        font-size: 22px;
+        /* Ajusta o tamanho do título do benefício */
+    }
+
+    .benefit-description {
+        font-size: 18px;
+        /* Ajusta o tamanho da descrição do benefício */
+    }
+
+
+    .sports-benefits-subtitle, .subtitle-tres {
+    font-size: 20px;
+
+}
+
+    .sports-benefits-title, .title-tres {
+        font-size: 42px;
+        /* Ajusta o tamanho dos títulos */
+    }
+
+    .sports-benefits-text, .parte-final-text {
+        font-size: 20px;
+        /* Ajusta o tamanho do texto */
+    }
+    .mobile-btn {
+        display: block;
+        /* Exibe o botão de menu móvel */
+    }
+
+    .content-dois, .sports-benefits-content, .parte-final {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        /* Organiza os elementos em coluna e centraliza o texto */
+    }
+
+    .container, .cactus-image-container, .cactus-meditar-image-container {
+        justify-content: center;
+        /* Centraliza o conteúdo */
+    }
+
+    .mascote, .cactus-image, .cactus-meditar-image {
+        max-height: 18rem;
+        /* Reduz a altura máxima das imagens */
+    }
+
+    .parte-final-text {
+        max-width: 100%;
+        /* O texto ocupa toda a largura */
+    }
+.image-and-cards {
+    flex-direction: column;
+ 
+}
+    .cactus-meditar-image-container {
+        max-width: 100%;
+        margin-top: 1rem;
+        /* Adiciona margem superior à imagem */
+    }
+    .text-content {
+    text-align: center;
+}
+
+}
+
+@media (max-width: 760px) {
+   
+
+   
+
+    .mascote, .cactus-image, .cactus-meditar-image {
+        max-height: 15rem;
+        /* Reduz a altura máxima das imagens */
+    }
+
+    .cta-button {
+        padding: 0.8rem 2rem;
+        max-width: 300px;
+        /* Ajusta o botão para telas menores */
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        /* Uma coluna por vez */
+        max-width: 400px;
+        margin: 0 auto;
+        /* Centraliza a grade */
+    }
+    
+}
+
+@media (max-width: 480px) {
+
+
+
+
+    .mascote, .cactus-image, .cactus-meditar-image {
+        max-height: 12rem;
+        /* Reduz a altura máxima das imagens */
+    }
+
+    .cta-button {
+        padding: 0.7rem 1.5rem;
+        max-width: 250px;
+        /* Ajusta o botão para telas menores */
+    }
+      #userwayAccessibilityIcon {
+    top: 50px;
+  }
+}
+
+@media (max-width: 360px) {
+
+
+    .mascote, .cactus-image, .cactus-meditar-image {
+        max-height: 10rem;
+        /* Reduz a altura máxima das imagens */
+    }
+
+    .cta-button {
+        padding: 0.6rem 1.5rem;
+        max-width: 200px;
+        /* Ajusta o botão para telas menores */
+    }
+}
+

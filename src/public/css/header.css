@@ -1,0 +1,150 @@
+header {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    /* Define a fonte Poppins para o cabeçalho */
+    font-size: 12px;
+    /* Tamanho de fonte base */
+    padding: 16px 3%;
+    /* Preenchimento interno com 16px vertical e 3% horizontal */
+    background-color: #E5F4F2;
+    /* Fundo verde claro */
+    height: 12vh;
+    /* Altura de 12% da altura da viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Centraliza os itens verticalmente */
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Organiza os itens com espaço uniforme entre eles */
+}
+
+.logo {
+    width: 70%;
+    /* O logotipo ocupa 70% da largura do contêiner */
+}
+
+.navbar {
+    display: flex;
+    list-style: none;
+    /* Remove os marcadores de lista */
+    gap: 30px;
+    /* Espaço de 30px entre os itens da navegação */
+}
+
+.navbar a {
+    padding: 10px 15px;
+    /* Preenchimento interno dos links */
+    border-radius: 6px;
+    /* Bordas arredondadas */
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    color: #D52453;
+    /* Cor do texto rosa escuro */
+    font-weight: 700;
+    /* Peso negrito */
+    letter-spacing: 1px;
+    /* Espaçamento entre letras */
+}
+
+.navbar a:hover {
+    color: #D52453;
+    /* Mantém a cor rosa escuro em hover */
+    background-color: #FFE5EC;
+    /* Fundo rosa claro em hover */
+}
+
+.navbar li.active a {
+    color: #FFE5EC;
+    /* Texto rosa claro para o item ativo */
+    background-color: #D52453;
+    /* Fundo rosa escuro para o item ativo */
+}
+
+.mobile-btn {
+    display: none;
+    /* Oculta o botão de menu móvel por padrão */
+}
+
+#mobile-menu {
+    display: none;
+    /* Oculta o menu móvel por padrão */
+}
+
+@media screen and (max-width: 900px) {
+    header {
+        width: 100vw;
+        /* Ocupa toda a largura da viewport */
+        padding: 28px 8%;
+        /* Ajusta o preenchimento para 28px vertical e 8% horizontal */
+        background-color: #E5F4F2;
+        /* Mantém o fundo verde claro */
+        height: 8vh;
+        /* Reduz a altura para 8% da altura da viewport */
+    }
+
+    .navbar {
+        display: none;
+        /* Oculta a navegação padrão em telas menores */
+    }
+
+    .mobile-btn {
+        background: none;
+        display: block;
+        /* Exibe o botão de menu móvel */
+        cursor: pointer;
+        border: none;
+        /* Remove borda do botão */
+    }
+
+    #mobile-menu.active {
+        width: 100vw;
+        /* Ocupa toda a largura da viewport */
+        color: #D52453;
+        /* Cor do texto rosa escuro */
+        background-color: #E5F4F2;
+        /* Fundo verde claro */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centraliza os itens verticalmente */
+        top: 8vh;
+        /* Posiciona abaixo do cabeçalho */
+        left: 0;
+        position: absolute;
+        /* Posicionamento absoluto em relação ao elemento pai */
+    }
+
+    .mobile-navbar {
+        list-style: none;
+        /* Remove marcadores de lista */
+        text-align: center;
+        /* Centraliza o texto */
+        background: none;
+        margin: 15px 0;
+        /* Margem vertical */
+        display: flex;
+        flex-direction: column;
+        /* Organiza os itens em coluna */
+        gap: 20px;
+        /* Espaço entre os itens */
+    }
+
+    .mobile-navbar a {
+        text-decoration: none;
+        /* Remove sublinhado dos links */
+        color: #D52453;
+        /* Cor do texto rosa escuro */
+        font-weight: 700;
+        /* Peso negrito */
+        padding: 5px;
+        /* Preenchimento interno reduzido */
+        border-radius: 5px;
+        /* Bordas arredondadas */
+    }
+}

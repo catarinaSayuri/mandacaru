@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- Declaro que esse documento é um HTML5 -->
+<html lang="pt-BR">
+  <head>
+    <!-- Configuro a codificação de caracteres para UTF-8 -->
+    <meta charset="UTF-8" />
+    <!-- Deixo a visualização responsiva para diferentes tamanhos de tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Título da aba do navegador -->
+       <link rel="icon" href="/assets/icon_title.png" type="image/x-icon">
+    <title>Cultura | Mandacaru</title>
+
+    <!-- Estilos específicos dessa página -->
+    <link rel="stylesheet" href="/css/culturaStyle.css" />
+    <!-- Estilos do cabeçalho compartilhado com outras páginas -->
+    <link rel="stylesheet" href="/css/header.css" />
+
+    <!-- Ícone que aparece na aba do navegador -->
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+
+    <!-- Otimização para carregamento de fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Importação das fontes 'Mulish' e 'Poppins' para uso no site -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="fade-in">
+    <!-- Cabeçalho da página -->
+    <header>
+      <nav>
+        <div>
+          <!-- Logo com link para a home -->
+          <a href="/">
+            <img
+              class="logo"
+              src="/assets/logo_mandacaru.svg"
+              alt="logo_mandacaru"
+            />
+          </a>
+        </div>
+
+        <!-- Navegação principal no desktop -->
+        <ul class="navbar">
+          <li><a href="/">Home</a></li>
+          <li class="active"><a href="/cultura">Cultura</a></li>
+          <!-- Página atual -->
+          <li><a href="/esporte">Esporte</a></li>
+          <li><a href="/saude">Saúde Mental</a></li>
+          <li><a href="/sobre">Sobre Nós</a></li>
+        </ul>
+
+        <!-- Botão para abrir menu no mobile -->
+        <button class="mobile-btn">
+          <img src="../assets/NavBar.svg" alt="" />
+        </button>
+      </nav>
+
+      <!-- Menu que aparece no mobile -->
+      <div id="mobile-menu">
+        <ul class="mobile-navbar">
+          <li><a href="/">Home</a></li>
+          <li><a href="/cultura">Cultura</a></li>
+          <li><a href="/esporte">Esporte</a></li>
+          <li><a href="/saude">Saúde Mental</a></li>
+          <li><a href="/sobre">Sobre Nós</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- Primeira seção com título e chamada principal -->
+      <section class="topo-section">
+        <div class="content-dois">
+          <div class="text-content">
+            <h1 class="title">
+              Cultura <span class="highlight">Viva</span>,<br />
+              <span class="highlight">Mente</span> Atenta
+            </h1>
+            <p class="subtitle">A arte como cuidado, expressão e conexão.</p>
+            <a href="/"><button class="cta-button">Visualizar Mapa</button></a>
+          </div>
+
+          <!-- Mascote ao lado do texto -->
+            <img
+              class="mascote"
+              src="../assets/mascote_livro.png"
+              alt="Mascote com livro"
+            />
+        </div>
+      </section>
+
+      <div class="tela-container-principal">
+
+      <!-- Seção sobre os benefícios culturais -->
+      <section class="sports-benefits-section">
+        <div class="sports-benefits-container">
+          <div class="sports-benefits-header">
+            <h2 class="sports-benefits-title">
+              O impacto da cultura no bem-estar
+            </h2>
+            <p class="sports-benefits-subtitle">
+              A diversidade do que somos renova o sentido e o equilíbrio da
+              vida.
+            </p>
+          </div>
+
+          <div class="sports-benefits-content">
+            <!-- Imagem do mascote com filme -->
+            <div class="cactus-image-container">
+              <img
+                class="cactus-meditar-image"
+                src="../assets/mascote-filme.png"
+                alt="Mascote com filme"
+              />
+            </div>
+
+            <!-- Texto explicativo sobre o papel da cultura -->
+            <div class="sports-benefits-text">
+              
+              <p>
+                A cultura faz parte da nossa vida desde sempre ela está nas
+                músicas que ouvimos, nas histórias que contamos, nas festas que
+                celebramos e até na comida que comemos. Tudo isso influencia
+                como nos sentimos, como nos relacionamos com os outros e como
+                lidamos com os desafios do dia a dia. Valorizar a cultura é
+                também cuidar do nosso bem-estar, da nossa identidade e da nossa
+                <span class="destaque">convivência com o mundo ao redor.</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Cards com benefícios específicos -->
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <h3 class="benefit-title">Cultura e Bem-Estar</h3>
+              <p class="benefit-description">
+                Atividades culturais, como visitar museus, assistir a
+                apresentações ou participar de festivais, podem reduzir o
+                estresse e promover o bem-estar emocional.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <h3 class="benefit-title">A Arte como Terapia</h3>
+              <p class="benefit-description">
+                Expressões artísticas, como pintar, escrever, dançar ou tocar um
+                instrumento, ajudam a processar emoções difíceis e promovem o
+                bem-estar emocional.
+              </p>
+            </div>
+            <div class="benefit-card">
+              <h3 class="benefit-title">Cultura e Identidade</h3>
+              <p class="benefit-description">
+                A cultura nos ajuda a formar nossa identidade, valores e crenças
+                ao refletir quem somos, de onde viemos e como enxergamos o
+                mundo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção final com encerramento reflexivo -->
+      <section class="final-section">
+        <div class="sports-benefits-container">
+          <div class="sports-benefits-header">
+            <h2 class="title-tres">Cultura como forma de abstração</h2>
+            <p class="subtitle-tres">
+              Onde a mente encontra descanso e força para recomeçar.
+            </p>
+          </div>
+
+          <div class="parte-final">
+            <div class="parte-final-text">
+              <p>
+                Quem participa de atividades culturais se sente conectado com
+                suas raízes e mais seguro de quem é. Para os jovens, esse
+                contato com a arte e a expressão ajuda a fortalecer a
+                autoestima, aliviar tensões emocionais e criar vínculos mais
+                saudáveis, sendo um importante apoio para a saúde mental e o
+                bem-estar nessa fase de tantas mudanças.<span class="destaque"
+                  >Cultivar a cultura é cuidar de quem está crescendo.</span
+                >
+              </p>
+            </div>
+            <div class="cactus-meditar-image-container">
+              <img
+                class="cactus-meditar-image"
+                src="../assets/mascote.png"
+                alt="Mascote meditando"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      </div>
+    </main>
+
+    <!-- Rodapé com direitos autorais e links -->
+    <footer>
+      <p>© 2025, projeto Mandacaru - Inteli</p>
+      <div class="icones-rodape">
+        <!-- Link para repositório do projeto -->
+        <a
+          href="https://github.com/Inteli-College/2025-1B-T17-IN02-G01"
+          class="link-icone-rodape"
+        >
+          <img
+            src="/assets/icon_github.svg"
+            alt="GitHub"
+            class="icone-rodape"
+          />
+        </a>
+        <!-- Link fictício do LinkedIn (mesmo link do GitHub por enquanto) -->
+        <a
+          href="https://msha.ke/projeto_mandacaru/"
+          class="link-icone-rodape"
+        >
+          <img
+            src="/assets/icon_linkedin.svg"
+            alt="LinkedIn"
+            class="icone-rodape"
+          />
+        </a>
+      </div>
+    </footer>
+
+    <!-- Botão de voltar ao topo da página -->
+    <button class="scroll-top" aria-label="Voltar ao topo">
+      <svg
+        width="24"
+        height="24"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- Inclusão de acessibilidade da UserWay -->
+    <script
+      src="https://cdn.userway.org/widget.js"
+      data-account="YswjRxBH1z"
+    ></script>
+
+    <script>
+      // Função para alternar visibilidade do menu mobile
+      document.querySelector(".mobile-btn").addEventListener("click", () => {
+        document.querySelector("#mobile-menu").classList.toggle("active");
+      });
+
+      // Mostrar botão de "voltar ao topo" quando o usuário rola a página
+      const scrollTopBtn = document.querySelector(".scroll-top");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          scrollTopBtn.classList.add("visible");
+        } else {
+          scrollTopBtn.classList.remove("visible");
+        }
+      });
+
+      // Rolar suavemente para o topo quando o botão for clicado
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>

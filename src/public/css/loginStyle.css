@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+  /* Define o modelo de caixa como border-box para todos os elementos */
+  margin: 0;
+  padding: 0;
+  /* Reseta margens e preenchimentos */
+  font-family: sans-serif;
+  /* Fonte padrão sans-serif */
+}
+
+body {
+  height: 100vh;
+  /* Ocupa toda a altura da viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Centraliza o conteúdo horizontal e verticalmente */
+  background: #ffffff;
+  /* Fundo branco */
+}
+
+.container-geral {
+  background: #fef7f7;
+  /* Fundo rosa claro */
+  padding: 20px;
+  /* Preenchimento interno */
+  border: 1px solid #ccc;
+  /* Borda cinza claro */
+  width: 80vw;
+  height: auto;
+  /* Dimensões fixas do contêiner */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /* Centraliza o conteúdo interno */
+  border-radius: 12px;
+  /* Bordas arredondadas */
+}
+
+.container-login {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* Distribui o espaço entre os elementos */
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  /* Permite quebra de linha em telas menores */
+}
+
+.container-imagem img {
+  max-width: 100%;
+  height: auto;
+  /* Imagem responsiva com proporção mantida */
+}
+
+.container-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* Distribui o espaço entre os elementos */
+  height: 70%;
+  /* Margem à esquerda para espaçamento */
+}
+
+.titulo {
+  font-size: 44px;
+  color: #d52453;
+  /* Cor rosa escuro */
+  margin-bottom: 10px;
+  /* Margem inferior */
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.subtitulo {
+ 
+  margin-bottom: 15px;
+  /* Margem inferior */
+
+    color: #2d2d2d;
+  /* Cor cinza escuro */
+  font-size: 24px;
+  font-weight: 400;
+  /* Peso regular */
+  line-height: 140%;
+  font-family: "Mulish", sans-serif;
+  /* Altura da linha */
+}
+
+.container-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Centraliza os inputs */
+}
+
+.titulos {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* Centraliza os títulos dos inputs */
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  /* Borda cinza claro */
+  background: none;
+  cursor: pointer;
+  /* Cursor de clique */
+}
+
+.email,
+.senha,
+.botao {
+  width: 359.97px;
+  height: 55.15px;
+  /* Dimensões fixas para os inputs e botão */
+  padding: 8px;
+  /* Preenchimento interno */
+  margin-bottom: 12px;
+  /* Margem inferior */
+  border: 1px solid #ccc;
+  /* Borda cinza claro */
+  border-radius: 12px;
+  /* Bordas arredondadas */
+  text-align: left;
+  /* Alinhamento do texto à esquerda */
+}
+
+.botao {
+  background: #d52453;
+  /* Fundo rosa escuro */
+  color: white;
+  /* Texto branco */
+  cursor: pointer;
+  text-align: center;
+  /* Centraliza o texto */
+  font-weight: bold;
+  /* Peso negrito */
+}
+.notification-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        max-width: 300px;
+      }
+      .notification {
+        background-color: #4caf50;
+        color: white;
+        padding: 15px 20px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      .notification.error {
+        background-color: #f44336;
+      }
+      .notification.show {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .notification.hide {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+/* Responsividade */
+
+
+/* Ajustes para telas menores */
+@media screen and (max-width: 900px) {
+    .container-geral {
+    width: 90%;
+    height: auto;
+    /* Ajusta a altura ao conteúdo */
+    flex-direction: column;
+    padding: 30px 20px;
+    /* Aumenta o preenchimento vertical */
+  }
+
+  .container-login {
+    flex-direction: column;
+    gap: 20px;
+    /* Espaço entre os elementos */
+  }
+
+  .container-input{
+    width: 80%;
+  }
+
+  .container-infos {
+    margin-left: 0;
+    /* Remove a margem à esquerda */
+    width: 100%;
+    height: auto;
+    /* Ajusta a altura ao conteúdo */
+    padding: 0 10px;
+    /* Preenchimento lateral */
+  }
+
+  .email,
+  .senha {
+    width: 100%;
+
+  }
+
+  .botao {
+    width: 80%;
+    /* Botão ocupa 66% da largura */
+  }
+
+  button {
+    width: 100%;
+    /* Limita a largura máxima dos botões */
+  }
+}
+
+@media (max-width: 760px) {
+.titulo {
+    font-size: 32px;
+    /* Reduz o tamanho da fonte */
+    text-align: center;
+  }
+
+  .subtitulo {
+    font-size: 14px;
+    /* Reduz o tamanho da fonte */
+  }
+
+  .container-geral {
+    padding: 20px;
+    /* Reduz o preenchimento */
+  }
+
+  .container-imagem img {
+    width: 200px;
+    height: auto;
+    /* Ajusta o tamanho da imagem */
+  }
+}
+
+@media (max-width: 480px) {
+  #userwayAccessibilityIcon {
+    top: 50px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" href="/assets/icon_title_adm.png" type="image/x-icon">
+    <title>Login | Mandacaru</title>
+    <link rel="stylesheet" href="/css/loginStyle.css" />
+    
+  </head>
+  <body>
+    <div class="container-geral">
+      <section class="container-login">
+        <div class="container-imagem">
+          <img class="tutti-login" src="/assets/tutti_login.png" alt="tutti_login" />
+        </div>
+        <div class="container-infos">
+          <div class="titulos">
+            <h1 class="titulo">Iniciar Sessão</h1>
+            <h2 class="subtitulo">Bem vindo de volta</h2>
+          </div>
+          <div class="container-input">
+            <input class="email" type="email" id="email" placeholder="Email" />
+            <input class="senha" type="password" id="senha" placeholder="Senha" />
+          </div>
+          <button class="botao" onclick="login()">Entrar</button>
+        </div>
+      </section>
+    </div>
+    <div class="notification-container" id="notification-container"></div>
+    <script>
+      const apiBase = '<%= typeof apiBase !== "undefined" ? apiBase : "" %>';
+      function showNotification(message, type = 'success') {
+        const notificationContainer = document.getElementById('notification-container');
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        notificationContainer.appendChild(notification);
+        setTimeout(() => notification.classList.add('show'), 100);
+        setTimeout(() => {
+          notification.classList.remove('show');
+          notification.classList.add('hide');
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }
+      async function login() {
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+        try {
+          const res = await fetch(`${apiBase}/adm/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, senha }),
+          });
+          if (!res.ok) {
+            const err = await res.json();
+            showNotification('Erro no login: ' + err.message, 'error');
+            return;
+          }
+          const data = await res.json();
+          if (data.token) {
+            localStorage.setItem('token', data.token);
+            showNotification('Login realizado com sucesso!', 'success');
+            // Verifica se o token foi salvo antes de redirecionar
+            if (localStorage.getItem('token')) {
+              setTimeout(() => {
+                window.location.href = '/adm/gerenciamento';
+              }, 1000);
+            } else {
+              showNotification('Erro ao salvar o token.', 'error');
+            }
+          } else {
+            showNotification('Token não recebido da API.', 'error');
+          }
+        } catch (err) {
+          showNotification('Erro de conexão: ' + err.message, 'error');
+        }
+      }
+    </script>
+    <script src="https://cdn.userway.org/widget.js" data-account="YswjRxBH1z"></script>
+  </body>
+</html>

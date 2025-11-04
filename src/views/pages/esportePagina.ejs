@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Metadados básicos da página -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" href="/assets/icon_title.png" type="image/x-icon">
+    <title>Esporte | Mandacaru</title>
+
+    <!-- Estilos externos -->
+    <link rel="stylesheet" href="/css/esporteStyle.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+
+    <!-- Fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="fade-in">
+    <!-- Cabeçalho da página com navegação -->
+    <header>
+      <nav>
+        <!-- Logo -->
+        <div>
+          <a href="/">
+            <img
+              class="logo"
+              src="/assets/logo_mandacaru.svg"
+              alt="logo_mandacaru"
+            />
+          </a>
+        </div>
+        <!-- Navegação principal -->
+        <ul class="navbar">
+          <li><a href="/">Home</a></li>
+          <li><a href="/cultura">Cultura</a></li>
+          <li class="active"><a href="/esporte">Esporte</a></li>
+          <li><a href="/saude">Saúde Mental</a></li>
+          <li><a href="/sobre">Sobre Nós</a></li>
+        </ul>
+        <!-- Botão do menu mobile -->
+        <button class="mobile-btn">
+          <img src="../assets/NavBar.svg" alt="" />
+        </button>
+      </nav>
+      <!-- Menu mobile oculto -->
+      <div id="mobile-menu">
+        <ul class="mobile-navbar">
+          <li><a href="/">Home</a></li>
+          <li><a href="/cultura">Cultura</a></li>
+          <li><a href="/esporte">Esporte</a></li>
+          <li><a href="/saude">Saúde Mental</a></li>
+          <li><a href="/sobre">Sobre Nós</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+      <!-- Seção de abertura com chamada visual -->
+      <section class="topo-section">
+        <div class="content-dois">
+          <!-- Texto de destaque -->
+          <div class="text-content">
+            <h1 class="title">
+              Corpo <span class="highlight">Ativo</span>,<br />
+              <span class="highlight">Mente</span> Saudável
+            </h1>
+            <p class="subtitle">Corpo saudável que reflete na mente.</p>
+            <a href="/"><button class="cta-button">Visualizar Mapa</button></a>
+          </div>
+          <!-- Mascote -->
+          <div class="container">
+            <img class="mascote" src="../assets/mascote_esporte.png" alt="Mascote" />
+          </div>
+        </div>
+      </section>
+
+      <div class="tela-container-principal">
+      <!-- Seção de benefícios do esporte -->
+      <section class="sports-benefits-section">
+        <div class="sports-benefits-container">
+          <!-- Cabeçalho da seção -->
+          <div class="sports-benefits-header">
+            <h2 class="sports-benefits-title">
+              A prática de esportes e a saúde mental
+            </h2>
+            <p class="sports-benefits-subtitle">Movimento que acolhe</p>
+          </div>
+          <div class="sports-benefits-content">
+            <!-- Imagem e cards de benefício -->
+            <div class="image-and-cards">
+              <div class="cactus-image-container">
+                <img
+                  class="cactus-image"
+                  src="../assets/mascote_meditar.png"
+                  alt="Cacto chutando bola"
+                />
+              </div>
+              <div class="benefits-grid">
+                <!-- Cada card representa um benefício -->
+                <div class="benefit-card">
+                  <h3 class="benefit-title">Melhora de humor</h3>
+                  <p class="benefit-description">
+                    Liberação de endorfinas que promovem bem-estar
+                  </p>
+                </div>
+                <div class="benefit-card">
+                  <h3 class="benefit-title">Diminuição do estresse</h3>
+                  <p class="benefit-description">
+                    Reduz os níveis de cortisol e adrenalina
+                  </p>
+                </div>
+                <div class="benefit-card">
+                  <h3 class="benefit-title">Alívio da ansiedade</h3>
+                  <p class="benefit-description">
+                    Proporciona foco e distração de preocupações
+                  </p>
+                </div>
+                <div class="benefit-card">
+                  <h3 class="benefit-title">Fortalece a autoestima</h3>
+                  <p class="benefit-description">
+                    Superação de desafios e melhora da autoimagem
+                  </p>
+                </div>
+                <div class="benefit-card">
+                  <h3 class="benefit-title">Promove convivência</h3>
+                  <p class="benefit-description">
+                    Interação social e senso de pertencimento
+                  </p>
+                </div>
+                <div class="benefit-card">
+                  <h3 class="benefit-title">Desenvolvimento Emocional</h3>
+                  <p class="benefit-description">
+                    Apoia no aprendizado da disciplina e resiliência
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Texto explicativo -->
+            <div class="sports-benefits-text">
+              <p>
+                A prática esportiva vai além dos benefícios físicos,
+                contribuindo diretamente para a saúde mental. Ela melhora o
+                humor, reduz o estresse, alivia sintomas de ansiedade e
+                fortalece a autoestima. Além disso, promove a convivência,
+                disciplina e ajuda no desenvolvimento emocional.
+                <span class="destaque"
+                  >Cuidar do corpo também é cuidar da mente.</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção final com mensagem inspiradora -->
+      <section class="final-section">
+        <div class="sports-benefits-container">
+          <div class="sports-benefits-header">
+            <h2 class="title-tres">É mais do que apenas exercício físico</h2>
+            <p class="subtitle-tres">
+              Onde a mente encontra descanso e força para recomeçar
+            </p>
+          </div>
+          <div class="parte-final">
+            <!-- Texto inspiracional -->
+            <div class="parte-final-text">
+              <p>
+                Praticar esportes é mais do que cuidar do corpo é também uma
+                forma de encontrar equilíbrio na mente. Em meio à correria e às
+                pressões do dia a dia, o movimento se torna um respiro, um tempo
+                para si. Cada passo, cada esforço, ajuda a aliviar a ansiedade,
+                clarear os pensamentos e reconectar com o presente. No esporte,
+                não se trata apenas de vencer, mas de se ouvir, se superar e
+                <span class="destaque">transformar os desafios em força.</span>
+              </p>
+            </div>
+            <!-- Imagem do mascote meditando -->
+            <div class="cactus-meditar-image-container">
+              <img
+                class="cactus-meditar-image"
+                src="../assets/mascote_missao.png"
+                alt="Cacto meditando"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      </div>
+    </main>
+
+    <!-- Rodapé com direitos e redes -->
+    <footer>
+      <p>© 2025, projeto Mandacaru - Inteli</p>
+      <div class="icones-rodape">
+        <a
+          href="https://github.com/Inteli-College/2025-1B-T17-IN02-G01"
+          class="link-icone-rodape"
+        >
+          <img src="/assets/icon_github.svg" alt="" class="icone-rodape" />
+        </a>
+        <a href="https://msha.ke/projeto_mandacaru/" class="link-icone-rodape">
+          <img src="/assets/icon_linkedin.svg" alt="" class="icone-rodape" />
+        </a>
+      </div>
+    </footer>
+
+    <!-- Botão para voltar ao topo da página -->
+    <button class="scroll-top" aria-label="Voltar ao topo">
+      <svg
+        width="24"
+        height="24"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- Inclusão de acessibilidade -->
+    <script
+      src="https://cdn.userway.org/widget.js"
+      data-account="YswjRxBH1z"
+    ></script>
+
+    <!-- Script para interatividade -->
+    <script>
+      // Toggle do menu mobile
+      document.querySelector(".mobile-btn").addEventListener("click", () => {
+        document.querySelector("#mobile-menu").classList.toggle("active");
+      });
+
+      // Lógica do botão de voltar ao topo
+      const scrollTopBtn = document.querySelector(".scroll-top");
+      const footer = document.querySelector("footer");
+
+      window.addEventListener("scroll", () => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const footerHeight = footer.offsetHeight;
+        const footerTop = footer.getBoundingClientRect().top + scrollPosition;
+        const limitDistance = 80;
+
+        // Exibe ou esconde o botão
+        if (scrollPosition > 300) {
+          scrollTopBtn.classList.add("visible");
+        } else {
+          scrollTopBtn.classList.remove("visible");
+        }
+
+        // Impede que o botão cubra o footer
+        if (footerTop <= windowHeight) {
+          const newBottom = Math.max(limitDistance, footerHeight + 20);
+          scrollTopBtn.style.bottom = `${newBottom}px`;
+        } else {
+          scrollTopBtn.style.bottom = "20px";
+        }
+      });
+
+      // Comportamento suave ao clicar
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML5 -->
+<html lang="pt-br">
+  <!-- Define o idioma da página como português do Brasil -->
+  <head>
+    <!-- Início da seção de metadados do documento -->
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Configura a viewport para responsividade em dispositivos móveis -->
+       <link rel="icon" href="/assets/icon_title.png" type="image/x-icon">
+    <title>Saúde Mental | Mandacaru</title>
+    <!-- Define o título da página exibido na aba do navegador -->
+    <link rel="stylesheet" href="/css/saudeMentStyle.css" />
+    <!-- Inclui o arquivo CSS para estilização específica da página de Saúde Mental -->
+    <link rel="stylesheet" href="/css/header.css" />
+    <!-- Inclui o arquivo CSS para estilização do cabeçalho -->
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <!-- Define o ícone da aba do navegador (favicon) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Estabelece uma conexão prévia com o servidor de fontes do Google -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Estabelece uma conexão prévia com o servidor de fontes estáticas do Google, com suporte a CORS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Inclui as fontes Poppins (múltiplos pesos e estilos) e Mulish (múltiplos pesos e estilos) do Google Fonts -->
+  </head>
+  <body class="fade-in">
+    <!-- Início do corpo do documento com a classe 'fade-in' para animação -->
+    <header>
+      <!-- Seção do cabeçalho da página -->
+      <nav>
+        <!-- Elemento de navegação -->
+        <div>
+          <!-- Contêiner para o logotipo -->
+          <a href="/">
+            <!-- Link para a página inicial -->
+            <img
+              class="logo"
+              src="/assets/logo_mandacaru.svg"
+              alt="logo_mandacaru"
+            />
+            <!-- Imagem do logotipo com classe 'logo' e descrição para acessibilidade -->
+          </a>
+        </div>
+        <ul class="navbar">
+          <!-- Lista de navegação para o menu principal -->
+          <li><a href="/">Home</a></li>
+          <!-- Item de menu com link para a página inicial -->
+          <li><a href="/cultura">Cultura</a></li>
+          <!-- Item de menu com link para a página de Cultura -->
+          <li><a href="/esporte">Esporte</a></li>
+          <!-- Item de menu com link para a página de Esporte -->
+          <li class="active"><a href="/saude">Saúde Mental</a></li>
+          <!-- Item de menu ativo com link para a página de Saúde Mental -->
+          <li><a href="/sobre">Sobre Nós</a></li>
+          <!-- Item de menu com link para a página Sobre Nós -->
+        </ul>
+        <button class="mobile-btn">
+          <!-- Botão para exibir o menu em dispositivos móveis -->
+          <img src="../assets/NavBar.svg" alt="" />
+          <!-- Ícone do menu para dispositivos móveis -->
+        </button>
+      </nav>
+      <div id="mobile-menu">
+        <!-- Contêiner do menu móvel -->
+        <ul class="mobile-navbar">
+          <!-- Lista de navegação para o menu móvel -->
+          <li><a href="/">Home</a></li>
+          <!-- Item de menu móvel com link para a página inicial -->
+          <li><a href="/cultura">Cultura</a></li>
+          <!-- Item de menu móvel com link para a página de Cultura -->
+          <li><a href="/esporte">Esporte</a></li>
+          <!-- Item de menu móvel com link para a página de Esporte -->
+          <li><a href="/saude">Saúde Mental</a></li>
+          <!-- Item de menu móvel com link para a página de Saúde Mental -->
+          <li><a href="/sobre">Sobre Nós</a></li>
+          <!-- Item de menu móvel com link para a página Sobre Nós -->
+        </ul>
+      </div>
+    </header>
+    <main>
+          
+
+      <!-- Seção principal do conteúdo da página -->
+      <section class="hero-section">
+        <!-- Seção hero com conteúdo introdutório -->
+        <div class="hero-content">
+          <!-- Contêiner para o conteúdo da seção hero -->
+          <div class="text-content">
+            <!-- Contêiner para o texto -->
+            <h1 class="hero-title">
+              <span class="text-highlight">Equilíbrio</span> Emocional,<br />
+              Vida com <span class="text-highlight">Sentido</span>
+            </h1>
+            <!-- Título principal com palavras destacadas -->
+            <p class="hero-subtitle">Passos que fortalecem e transformam.</p>
+            <!-- Subtítulo motivacional -->
+            <a href="/"><button class="cta-button">Visualizar Mapa</button></a>
+            <!-- Botão de chamada para ação -->
+          </div>
+          <div class="mascot-container">
+            <!-- Contêiner para a imagem do mascote -->
+            <img class="mascote" src="../assets/mascote_meditar.png" alt="Mascote" />
+            <!-- Imagem do mascote com descrição para acessibilidade -->
+          </div>
+        </div>
+      </section>
+        <div class="tela-container-principal">
+      <section class="mental-health-section">
+        <!-- Seção sobre saúde mental -->
+        <div class="mental-health-container">
+          <!-- Contêiner principal da seção -->
+          <div class="mental-health-header">
+            <!-- Cabeçalho da seção -->
+            <h2 class="mental-health-title">O cuidado com a saúde mental</h2>
+            <!-- Título da seção -->
+            <p class="mental-health-subtitle">
+              Um ato de amor próprio que nos ajuda a viver de forma mais plena e
+              resiliente.
+            </p>
+            <!-- Subtítulo explicativo -->
+          </div>
+          <div class="benefits-grid">
+            <!-- Grade de benefícios -->
+            <div class="benefit-card">
+              <!-- Card de benefício -->
+              <div class="benefit-icon">☺</div>
+              <!-- Ícone do benefício -->
+              <h3 class="benefit-title">Base do bem-estar</h3>
+              <!-- Título do benefício -->
+              <p class="benefit-description">
+                Saúde mental é essencial em todas as fases da vida
+              </p>
+              <!-- Descrição do benefício -->
+            </div>
+            <div class="benefit-card">
+              <!-- Card de benefício -->
+              <div class="benefit-icon">☺</div>
+              <!-- Ícone do benefício -->
+              <h3 class="benefit-title">Cuidar da mente</h3>
+              <!-- Título do benefício -->
+              <p class="benefit-description">
+                Um passo fundamental para viver com mais equilíbrio
+              </p>
+              <!-- Descrição do benefício -->
+            </div>
+            <div class="benefit-card">
+              <!-- Card de benefício -->
+              <div class="benefit-icon">☺</div>
+              <!-- Ícone do benefício -->
+              <h3 class="benefit-title">Prioridade diária</h3>
+              <!-- Título do benefício -->
+              <p class="benefit-description">
+                A saúde mental sustenta nossas relações e decisões
+              </p>
+              <!-- Descrição do benefício -->
+            </div>
+          </div>
+          <div class="mental-health-content">
+            <!-- Conteúdo com texto e imagem -->
+            <div class="cactus-image-container">
+              <!-- Contêiner para a imagem -->
+              <img
+                class="cactus-image"
+                src="../assets/mascote.png"
+                alt="Cacto chutando bola"
+              />
+              <!-- Imagem de um cacto com descrição para acessibilidade -->
+            </div>
+            <div class="mental-health-text">
+              <!-- Texto descritivo -->
+              <p>
+                A saúde mental é um aspecto fundamental do nosso bem-estar
+                geral, afetando diretamente a maneira como pensamos, sentimos e
+                nos relacionamos com o mundo. Quando a mente está equilibrada, é
+                possível lidar melhor com as emoções, enfrentar os desafios
+                diários e tomar decisões mais conscientes. A saúde mental
+                saudável favorece a construção de relações mais fortes e a
+                sensação de satisfação com a vida, tornando nosso dia a dia mais
+                leve e produtivo.
+              </p>
+              <!-- Parágrafo explicativo sobre a importância da saúde mental -->
+            </div>
+          </div>
+          <div class="mental-health-content reverse">
+            <!-- Conteúdo com texto e imagem (ordem invertida) -->
+            <div class="cactus-image-container">
+              <!-- Contêiner para a imagem -->
+              <img
+                class="cactus-image"
+                src="../assets/mascote_livro.png"
+                alt="Cacto chutando bola"
+              />
+              <!-- Imagem de um cacto com descrição para acessibilidade -->
+            </div>
+            <div class="mental-health-text">
+              <!-- Texto descritivo -->
+              <p>
+                Mesmo sendo tão importante, a saúde mental ainda enfrenta tabus
+                e preconceitos que dificultam a busca por ajuda. Muitas pessoas
+                têm medo ou vergonha de falar sobre seus sentimentos, o que pode
+                agravar os problemas. É fundamental incentivar o diálogo,
+                promover o autoconhecimento e adotar hábitos que fortalecem o
+                equilíbrio emocional, como cuidar do sono, da alimentação,
+                praticar exercícios e buscar apoio quando necessário.
+                <span class="destaque"
+                  >Cuidar da mente é um ato de coragem e amor próprio.</span
+                >
+              </p>
+              <!-- Parágrafo sobre os desafios e a importância do cuidado com a saúde mental -->
+            </div>
+          </div>
+          <div class="benefits-grid">
+            <!-- Segunda grade de benefícios -->
+            <div class="benefit-card">
+              <!-- Card de benefício -->
+              <h3 class="benefit-title">Saúde Mental e Qualidade de Vida</h3>
+              <!-- Título do benefício -->
+              <p class="benefit-description">
+                Cuidar da mente impacta diretamente no modo como lidamos com
+                desafios, nos relacionamos e vivemos o cotidiano.
+              </p>
+              <!-- Descrição do benefício -->
+            </div>
+            <div class="benefit-card">
+              <!-- Card de benefício -->
+              <h3 class="benefit-title">Equilíbrio Emocional e Rotina</h3>
+              <!-- Título do benefício -->
+              <p class="benefit-description">
+                Inserir pausas, momentos de autocuidado e expressão emocional no
+                dia a dia fortalece a saúde mental e previne sobrecargas.
+              </p>
+              <!-- Descrição do benefício -->
+            </div>
+            <div class="benefit-card">
+              <!-- Card de benefício -->
+              <h3 class="benefit-title">Autoconhecimento e Bem-Estar</h3>
+              <!-- Título do benefício -->
+              <p class="benefit-description">
+                Entender e acolher os próprios sentimentos é um caminho
+                importante para manter o equilíbrio mental e emocional.
+              </p>
+              <!-- Descrição do benefício -->
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
+    </main>
+    <footer>
+      <!-- Rodapé do site -->
+      <p>© 2025, projeto Mandacaru - Inteli</p>
+      <!-- Texto de direitos autorais -->
+      <div class="footer-icons">
+        <!-- Contêiner para ícones de redes sociais -->
+        <a
+          href="https://github.com/Inteli-College/2025-1B-T17-IN02-G01"
+          class="footer-icon-link"
+        >
+          <!-- Link para o GitHub -->
+          <img src="/assets/icon_github.svg" alt="" class="footer-icon" />
+          <!-- Ícone do GitHub -->
+        </a>
+        <a href="https://msha.ke/projeto_mandacaru/" class="footer-icon-link">
+          <!-- Link para o LinkedIn -->
+          <img src="/assets/icon_linkedin.svg" alt="" class="footer-icon" />
+          <!-- Ícone do LinkedIn -->
+        </a>
+      </div>
+    </footer>
+    <button class="scroll-top" aria-label="Voltar ao topo">
+      <!-- Botão para voltar ao topo da página -->
+      <svg
+        width="24"
+        height="24"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <!-- Ícone SVG de seta para cima -->
+        <polyline points="18 15 12 9 6 15"></polyline>
+        <!-- Define os pontos da seta -->
+      </svg>
+    </button>
+    <script
+      src="https://cdn.userway.org/widget.js"
+      data-account="YswjRxBH1z"
+    ></script>
+    <!-- Inclui o script do UserWay para acessibilidade -->
+    <script>
+      // Toggle mobile menu
+      document.querySelector(".mobile-btn").addEventListener("click", () => {
+        // Adiciona um ouvinte de evento de clique no botão do menu móvel
+        document.querySelector("#mobile-menu").classList.toggle("active");
+        // Alterna a classe 'active' para exibir ou ocultar o menu móvel
+      });
+
+      // Scroll to top with footer limit
+      const scrollTopBtn = document.querySelector(".scroll-top");
+      // Seleciona o botão de voltar ao topo
+      const footer = document.querySelector("footer");
+      // Seleciona o rodapé
+
+      window.addEventListener("scroll", () => {
+        // Adiciona um ouvinte de evento para o scroll da janela
+        const scrollPosition = window.scrollY;
+        // Obtém a posição atual do scroll
+        const windowHeight = window.innerHeight;
+        // Obtém a altura da janela
+        const footerHeight = footer.offsetHeight;
+        // Obtém a altura do rodapé
+        const footerTop = footer.getBoundingClientRect().top + scrollPosition;
+        // Calcula a posição do topo do rodapé
+        const limitDistance = 80;
+        // Define a distância mínima do botão ao rodapé
+
+        if (scrollPosition > 300) {
+          // Verifica se o usuário rolou mais de 300px
+          scrollTopBtn.classList.add("visible");
+          // Adiciona a classe 'visible' para mostrar o botão
+        } else {
+          scrollTopBtn.classList.remove("visible");
+          // Remove a classe 'visible' para ocultar o botão
+        }
+
+        // Limitar a posição do botão para não cobrir o footer
+        if (footerTop <= windowHeight) {
+          // Verifica se o rodapé está visível na janela
+          const newBottom = Math.max(limitDistance, footerHeight + 20);
+          // Calcula a nova posição inferior do botão
+          scrollTopBtn.style.bottom = `${newBottom}px`;
+          // Ajusta a posição do botão para evitar sobreposição com o rodapé
+        } else {
+          scrollTopBtn.style.bottom = "20px";
+          // Define a posição padrão do botão
+        }
+      });
+
+      scrollTopBtn.addEventListener("click", () => {
+        // Adiciona um ouvinte de evento de clique no botão de voltar ao topo
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        // Rola a página suavemente até o topo
+      });
+    </script>
+  </body>
+</html>

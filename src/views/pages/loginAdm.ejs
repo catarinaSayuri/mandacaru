@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Login API JWT</title>
+  <style>
+    /* Estilos básicos */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #eee;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+      font-size: 1.2rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      background: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <section>
+      <!-- Campo de email -->
+      <input type="email" id="email" placeholder="Email" />
+      <!-- Campo de senha -->
+      <input type="password" id="senha" placeholder="Senha" />
+      <!-- Botão de login -->
+      <button onclick="login()">Login</button>
+    </section>
+  </div>
+
+  <script>
+    // Define a base da API
+    const apiBase = '<%= typeof apiBase !== "undefined" ? apiBase : "" %>';
+
+    // Função de login
+    async function login() {
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+
+      try {
+        const res = await fetch(`${apiBase}/adm/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, senha }),
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          alert('Erro no login: ' + err.message);
+          return;
+        }
+
+        const data = await res.json();
+        localStorage.setItem('token', data.token); // Salva token
+        alert('Login realizado com sucesso!');
+        window.location.href = '/'; // Redireciona
+      } catch (err) {
+        alert('Erro de conexão: ' + err.message);
+      }
+    }
+  </script>
+</body>
+
+</html>
